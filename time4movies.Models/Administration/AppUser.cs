@@ -4,7 +4,7 @@ using System.Text;
 
 namespace time4movies.Models
 {
-    class AppUser
+    public class AppUser
     {
         public int Id              { get; set; }
         public string FirstName    { get; set; }
@@ -12,8 +12,8 @@ namespace time4movies.Models
         public string Username     { get; set; }
         public string Email        { get; set; }
         public string Password     { get; set; }
-        public UserType UserTypeId { get; set; }
-        public UserType UserType   { get; set; }
+        public int UserTypeId      { get; set; }
+        public string UserType     { get; set; }
         public DateTime CreateDate { get; set; }
         public bool IsAktiv        { get; set; }
     }

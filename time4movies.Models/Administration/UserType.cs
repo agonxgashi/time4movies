@@ -4,7 +4,7 @@ using System.Text;
 
 namespace time4movies.Models
 {
-    class UserType
+    public class UserType
     {
         public int Id { get; set; }
         public string TypeDescription { get; set; }

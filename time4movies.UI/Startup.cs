@@ -7,6 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
 using time4movies.UI.Auth;
+using time4movies.Repository;
+using time4movies.Services;
+using time4movies.Repository.Administration;
+using time4movies.Repository.Administration.Interfaces;
+using time4movies.Services.Administration.Interfaces;
+using time4movies.Services.Administration;
 
 namespace time4movies.UI
 {
@@ -22,6 +28,11 @@ namespace time4movies.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            DbHelper.ConnectionString = "Server=mssql4.gear.host;Database=time4moviesdb;User Id=time4moviesdb;Password=riinvest@12;";
+            services.AddTransient<IAppUserRepo, AppUserRepo>();
+            services.AddTransient<IAppUserService, AppUserService>();
+            string t = TokenGenerator.Build();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options => {
                         options.TokenValidationParameters =
@@ -68,6 +79,7 @@ namespace time4movies.UI
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
 
             app.UseStaticFiles();
 

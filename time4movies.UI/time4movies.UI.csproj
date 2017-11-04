@@ -21,6 +21,12 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\time4movies.DAL\time4movies.Repository.csproj" />
+    <ProjectReference Include="..\time4movies.Models\time4movies.Models.csproj" />
+    <ProjectReference Include="..\time4movies.Services\time4movies.Services.csproj" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

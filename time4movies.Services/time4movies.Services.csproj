@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\time4movies.DAL\time4movies.Repository.csproj" />
+    <ProjectReference Include="..\time4movies.Models\time4movies.Models.csproj" />
+  </ItemGroup>
+
 </Project>
