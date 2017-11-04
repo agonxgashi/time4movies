@@ -12,8 +12,8 @@ namespace time4movies.Models
         public string Username     { get; set; }
         public string Email        { get; set; }
         public string Password     { get; set; }
-        public string Salt         { get; set; }
         public UserType UserTypeId { get; set; }
+        public UserType UserType   { get; set; }
         public DateTime CreateDate { get; set; }
         public bool IsAktiv        { get; set; }
     }
