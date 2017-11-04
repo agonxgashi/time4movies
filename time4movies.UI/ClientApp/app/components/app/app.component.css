@@ -4,3 +4,12 @@
         padding-top: 50px;
     }
 }
+
+@font-face{
+    font-family: MavenPro;
+    src: url('../../../fonts/MavenPro-Regular.ttf')
+}
+
+*{
+    font-family: MavenPro !important;
+}

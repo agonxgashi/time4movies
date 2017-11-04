@@ -2,12 +2,17 @@ li .glyphicon {
     margin-right: 10px;
 }
 
+
+.navbar-inverse{
+    background-color: #011110 !important;
+}
+
 /* Highlighting rules for nav menu items */
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+    /*background-color: #4189C7;*/
+    color: #33ee77;
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
