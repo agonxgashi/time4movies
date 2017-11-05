@@ -1,0 +1,99 @@
+
+
+  main{   
+    background: url('./../../../img/fantastic_four_2015-wide.jpg') fixed no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  #container{
+    background: inherit;
+    border-radius: 8px;
+    height: 500px;
+    left: 20%;
+    margin-left: -175px;
+    margin-top: -250px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    width: 350px;
+  }
+  #container:before{
+    background: inherit;
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+    content: "";
+    filter: blur(10px);
+    height: 550px;
+    left: -25px;
+    position: absolute;
+    right: 0;
+    top: -25px;
+    width: 400px;
+  }
+  form img{
+    border-radius: 100%;
+    width: 100%;
+  }
+  form{
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  input[type="text"], input[type="password"]{
+    background-color: rgba(1,17,16, 0.55);
+    border-radius: 10px;
+    border: 0;
+    color: rgba(255,255,255, 0.8);
+    font-size: 16px;
+    outline: 0;
+    padding: 8px 8px 8px 8px;;
+    text-align: center;
+  }
+
+
+  input[type="submit"]{
+    background: #33ee77;
+    border-radius: 8px;
+    border: 2px solid #33ee77;;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    height: 60px;
+    outline: 0 !important;
+    padding-bottom: 0;
+    transition: all 300ms ease-in-out;
+    width: 100%;
+  }
+
+  input[type="submit"]:hover{
+    background: #011110;
+    color: #33ee77;
+  }
+
+  span a{
+    color: rgba(255,255,255, 0.8);
+  }
+
+
+  input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgba(255,255,255,0.4);
+  }
+  input::-moz-placeholder { /* Firefox 19+ */
+    color: rgba(255,255,255,0.4);;
+  }
+  input:-ms-input-placeholder { /* IE 10+ */
+    color: rgba(255,255,255,0.4);
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: rgba(255,255,255,0.4);
+  }
+
+  #landingQuote{
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    color: whitesmoke
+  }
