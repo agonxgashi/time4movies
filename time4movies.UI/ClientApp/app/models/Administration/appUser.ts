@@ -1,12 +1,12 @@
 export class AppUser{
-    id: number;
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    password: string;
+    id        : number;
+    firstName : string;
+    lastName  : string;
+    username  : string;
+    email     : string;
+    password  : string;
     userTypeId: number;
-    userType: string;
+    userType  : string;
     createDate: Date;
-    isActive: boolean;
+    isActive  : boolean;
 }

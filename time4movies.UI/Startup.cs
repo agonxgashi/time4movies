@@ -46,15 +46,21 @@ namespace time4movies.UI
                                  ValidAudience            = TokenGenerator.AUDIENCE,
                                  IssuerSigningKey         = TokenGenerator.Create(TokenGenerator.TOKEN_SECRET)
                              };
-
                         options.Events = new JwtBearerEvents
                         {
                             OnAuthenticationFailed = context =>
                             {
+                                var a = context.Request.Headers;
                                 return Task.CompletedTask;
                             },
                             OnTokenValidated = context =>
                             {
+                                var a = context.Request.Headers;
+                                return Task.CompletedTask;
+                            },
+                            OnMessageReceived = context =>
+                            {
+                                var a = context.Request.Headers;
                                 return Task.CompletedTask;
                             }
                         };
