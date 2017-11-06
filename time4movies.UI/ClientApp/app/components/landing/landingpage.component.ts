@@ -15,14 +15,23 @@ export class LandingPageComponent{
 
     constructor(private http: Http) {
         this.userToEdit = new AppUser();
+        this.showLogIn = true;
     }
 
     login() {
-        alert('Not implemented!')
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post("/api/AppUser/LogInUser", JSON.stringify(this.userToEdit), options)
+            .subscribe(
+            (res) => { console.log(res.text()) },
+            (err) => { }
+            )
     }
 
     signUp() {
+        console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         console.log(JSON.stringify(this.userToEdit))
+        console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         this.http.post("/api/AppUser/CreateUser", JSON.stringify(this.userToEdit), options)

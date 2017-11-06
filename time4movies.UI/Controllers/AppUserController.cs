@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using time4movies.Services.Administration.Interfaces;
 using time4movies.Models;
+using time4movies.UI.Auth;
 
 namespace time4movies.UI.Controllers
 {
@@ -20,6 +21,13 @@ namespace time4movies.UI.Controllers
         public void CreateUser([FromBody]AppUser user)
         {
             this._appUserService.CreateUser(user);
+        }
+
+        [HttpPost("[action]")]
+        public string LogInUser([FromBody]AppUser user)
+        {
+            AppUser usr = _appUserService.LogInUser(user);
+            return usr != null ? TokenGenerator.Build(usr) : ""; 
         }
 
     }

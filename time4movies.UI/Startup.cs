@@ -32,7 +32,7 @@ namespace time4movies.UI
             services.AddTransient<IAppUserRepo, AppUserRepo>();
             services.AddTransient<IAppUserService, AppUserService>();
 
-            string t = TokenGenerator.Build();
+            //string t = TokenGenerator.Build();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options => {
