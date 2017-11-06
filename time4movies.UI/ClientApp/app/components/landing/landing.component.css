@@ -8,7 +8,7 @@
 .blurCont {
     background: inherit;
     border-radius: 8px;
-    height: 500px;
+    height: 550pxs;
     left: 20%;
     margin-left: -175px;
     margin-top: -250px;
@@ -36,6 +36,7 @@
   form img{
     border-radius: 100%;
     width: 100%;
+    
   }
   form{
     left: 50%;
