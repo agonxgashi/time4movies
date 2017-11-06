@@ -30,6 +30,33 @@
     top: -25px;
     width: 400px;
   }
+#container1 {
+    background: inherit;
+    border-radius: 8px;
+    height: 500px;
+    left: 20%;
+    margin-left: -175px;
+    margin-top: -250px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    width: 350px;
+}
+
+#container1:before {
+        background: inherit;
+        bottom: 0;
+        box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+        content: "";
+        filter: blur(10px);
+        height: 550px;
+        left: -25px;
+        position: absolute;
+        right: 0;
+        top: -25px;
+        width: 400px;
+    }
+
   form img{
     border-radius: 100%;
     width: 100%;
@@ -49,7 +76,7 @@
     color: rgba(255,255,255, 0.8);
     font-size: 16px;
     outline: 0;
-    padding: 8px 8px 8px 8px;;
+    padding: 8px 8px 8px 8px;
     text-align: center;
   }
 
@@ -57,7 +84,7 @@
   input[type="submit"]{
     background: #33ee77;
     border-radius: 8px;
-    border: 2px solid #33ee77;;
+    border: 2px solid #33ee77;
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -82,7 +109,7 @@
     color: rgba(255,255,255,0.4);
   }
   input::-moz-placeholder { /* Firefox 19+ */
-    color: rgba(255,255,255,0.4);;
+    color: rgba(255,255,255,0.4);
   }
   input:-ms-input-placeholder { /* IE 10+ */
     color: rgba(255,255,255,0.4);
@@ -97,3 +124,4 @@
     left: 60%;
     color: whitesmoke
   }
+  

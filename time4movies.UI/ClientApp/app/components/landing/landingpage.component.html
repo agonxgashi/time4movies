@@ -4,20 +4,42 @@
         <img src="./../../../img/logo/whiteFont.png"><br>
         <br>
         <br>
-        <input type="text" [(ngModel)]="userToEdit.username" placeholder="@username" ><br>
+        <input type="text" [(ngModel)]="userToEdit.firstName" placeholder="@Name" required ><br>
         <br>
-        <input type="password" ng-model="userToEdit.password" placeholder="password"><br>
+        <input type="text" [(ngModel)]="userToEdit.lastName" placeholder="@last name" required><br>
         <br>
-        <input type="submit" value="LOG IN"><br>
+        <input type="text" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
         <br>
-        <span><a href="#">Forgot Password?</a></span> <br>
-        <span><a href="#">Sing Up? It's free</a></span>
+        <input type="text" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>   
+        <br>
+        <input type="password"  [(ngModel)]="userToEdit.password"  placeholder="@password" required><br>
+        <br>
+        <input type="submit" value="Sing Up"><br>
+        <br>
+        <span><a href="#">Already have an Account? Sing In</a></span> <br>
       </form>
     </div>
+    <!--<div id="container1">
+        <form action="">
+            <img src="./../../../img/logo/whiteFont.png"><br>
+            <br>
+            <br>
+            <br>
+            <input type="text" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+            <br>
+            <input type="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+            <br>
+            <input type="submit" value="Sing In"><br>
+            <br>
+            <span><a href="#">Forgot Password?</a></span> <br>
+            <span><a id="a" href="#">Sing Up? It's free</a></span>
+        </form>
+    </div>-->
+ 
 
 
     <div id="landingQuote" style="">
-        <h1>sjkfk</h1>
+        <h1></h1>
     </div>
 
 </main>

@@ -1,4 +1,10 @@
+
+
 export class AppUser{
+
+
+   
+    
     id        : number;
     firstName : string;
     lastName  : string;

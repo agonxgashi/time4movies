@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     templateUrl: './landingpage.component.html',
     styles: [require('./landing.component.css')]
 })
-export class LandingPageComponent{
+export class LandingPageComponent{  
     userToEdit: AppUser = new AppUser();
 
     constructor(private http: Http) { }
@@ -16,7 +16,7 @@ export class LandingPageComponent{
 
     }
 
-    signUp(){
-
+    signUp() {
+        
     }
 }

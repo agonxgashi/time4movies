@@ -1,8 +1,8 @@
 ﻿using System;
 using time4movies.Models;
 using System.Data;
-using System.Data.SqlClient;
 using time4movies.Repository.Administration.Interfaces;
+using System.Data.SqlClient;
 
 namespace time4movies.Repository.Administration
 {
