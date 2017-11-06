@@ -5,32 +5,7 @@
     background-size: cover;
     height: 100vh;
   }
-  #container{
-    background: inherit;
-    border-radius: 8px;
-    height: 500px;
-    left: 20%;
-    margin-left: -175px;
-    margin-top: -250px;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    width: 350px;
-  }
-  #container:before{
-    background: inherit;
-    bottom: 0;
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
-    content: "";
-    filter: blur(10px);
-    height: 550px;
-    left: -25px;
-    position: absolute;
-    right: 0;
-    top: -25px;
-    width: 400px;
-  }
-#container1 {
+.blurCont {
     background: inherit;
     border-radius: 8px;
     height: 500px;
@@ -42,8 +17,7 @@
     top: 50%;
     width: 350px;
 }
-
-#container1:before {
+    .blurCont:before {
         background: inherit;
         bottom: 0;
         box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
@@ -56,6 +30,8 @@
         top: -25px;
         width: 400px;
     }
+
+
 
   form img{
     border-radius: 100%;
@@ -100,9 +76,14 @@
     color: #33ee77;
   }
 
-  span a{
+.blurCont > form > span {
     color: rgba(255,255,255, 0.8);
-  }
+    cursor: pointer;
+}
+
+.blurCont > form > span:hover {
+    text-decoration: underline;
+}
 
 
   input::-webkit-input-placeholder { /* Chrome/Opera/Safari */

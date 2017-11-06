@@ -2,9 +2,10 @@
 
 export class AppUser{
 
+    constructor() {
 
-   
-    
+    }
+
     id        : number;
     firstName : string;
     lastName  : string;

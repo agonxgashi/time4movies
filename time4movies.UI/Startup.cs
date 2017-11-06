@@ -31,6 +31,7 @@ namespace time4movies.UI
             DbHelper.ConnectionString = "Server=mssql4.gear.host;Database=time4moviesdb;User Id=time4moviesdb;Password=riinvest@12;";
             services.AddTransient<IAppUserRepo, AppUserRepo>();
             services.AddTransient<IAppUserService, AppUserService>();
+
             string t = TokenGenerator.Build();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
