@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+import { LogInSrv } from './services/logInService'
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -19,6 +21,9 @@ import { CounterComponent } from './components/counter/counter.component';
         FetchDataComponent,
         HomeComponent,
         LandingPageComponent
+    ],
+    providers: [
+        LogInSrv
     ],
     imports: [
         CommonModule,

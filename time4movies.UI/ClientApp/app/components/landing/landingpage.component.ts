@@ -2,6 +2,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { JsonPipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
 import { Component } from '@angular/core';
+import { LogInSrv } from "../../services/logInService";
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LandingPageComponent{
     userToEdit: AppUser;
     showLogIn : boolean = true;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
         this.showLogIn = true;
     }
@@ -26,6 +27,7 @@ export class LandingPageComponent{
             (res) => {
                 console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                 console.log(res.text())
+                this.ls.setCookieValue(res.text())
                 console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
             },
             (err) => { }
