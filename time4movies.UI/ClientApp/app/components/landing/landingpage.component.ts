@@ -23,15 +23,16 @@ export class LandingPageComponent{
         let options = new RequestOptions({ headers: headers });
         this.http.post("/api/AppUser/LogInUser", JSON.stringify(this.userToEdit), options)
             .subscribe(
-            (res) => { console.log(res.text()) },
+            (res) => {
+                console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+                console.log(res.text())
+                console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+            },
             (err) => { }
             )
     }
 
     signUp() {
-        console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-        console.log(JSON.stringify(this.userToEdit))
-        console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         this.http.post("/api/AppUser/CreateUser", JSON.stringify(this.userToEdit), options)
