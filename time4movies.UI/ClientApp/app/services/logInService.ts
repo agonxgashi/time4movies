@@ -10,7 +10,7 @@ import * as JWT from 'jwt-decode';
 
 @Injectable()
 export class LogInSrv {
-    private name : string = "cookieName";
+    private name : string = "jwt";
     constructor(private _http: Http, private router?: Router) {
     }
 

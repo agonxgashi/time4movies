@@ -1,23 +1,42 @@
 <main>
-    <div id="container">
+    <div class="blurCont" *ngIf="!showLogIn" >
       <form action="">
         <img src="./../../../img/logo/whiteFont.png"><br>
         <br>
+        <input type="text" name="fName" [(ngModel)]="userToEdit.firstName" placeholder="@Name" required ><br>
+          <br>
+        <input type="text" name="lName" [(ngModel)]="userToEdit.lastName" placeholder="@last name" required><br>
         <br>
-        <input type="text" [(ngModel)]="userToEdit.username" placeholder="@username" ><br>
+        <input type="text" name="usr" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
         <br>
-        <input type="password" ng-model="userToEdit.password" placeholder="password"><br>
+        <input type="text" name="em" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>   
         <br>
-        <input type="submit" value="LOG IN"><br>
+        <input type="password" name="pwd"  [(ngModel)]="userToEdit.password"  placeholder="@password" required><br>
         <br>
-        <span><a href="#">Forgot Password?</a></span> <br>
-        <span><a href="#">Sing Up? It's free</a></span>
+        <!--<input type="text" name="datetime" [(ngModel)]="userToEdit.createDate" placeholder="@DateCreated" required><br>
+        <br>-->
+        <input type="submit" (click)="signUp()" value="Sing Up"><br>
+        <br>
+        <span (click)="blurContSwitch()">Already have an Account? Sing In</span> <br>
       </form>
     </div>
 
 
-    <div id="landingQuote" style="">
-        <h1>sjkfk</h1>
+    <div class="blurCont" *ngIf="showLogIn" >
+        <form action="">
+            <img src="./../../../img/logo/whiteFont.png"><br>
+            <br>
+            <br>
+            <br>
+            <input type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+            <br>
+            <input type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+            <br>
+            <input type="submit" (click)="login()" value="Sing In"><br>
+            <br>
+            <span>Forgot Password?</span> <br>
+            <span (click)="blurContSwitch()">Sing Up? It's free</span>
+        </form>
     </div>
-
+ 
 </main>

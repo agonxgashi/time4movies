@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using time4movies.Models;
 
 namespace time4movies.UI.Auth
 {
@@ -15,15 +16,17 @@ namespace time4movies.UI.Auth
         public static readonly string AUDIENCE     = "time4movies.com";
 
 
-        public static string Build()
+        public static string Build(AppUser user)
         {
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Acr, ""),
-                //new Claim(JwtRegisteredClaimNames.UniqueName, "agonxgashi"), //Username
-                //new Claim(JwtRegisteredClaimNames.Email, "agonxgashi@gmail.com"), //User Email
-                //new Claim(ClaimTypes.Role, "Admin"), //TODO: Role must be updated for each user
+                new Claim(JwtRegisteredClaimNames.Jti       , Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Acr       , ""),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+                new Claim(JwtRegisteredClaimNames.GivenName , user.FirstName),
+                new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+                new Claim(JwtRegisteredClaimNames.Email     , user.Email),
+                new Claim(ClaimTypes.Role                   , user.UserType),
                 new Claim(JwtRegisteredClaimNames.Iat,
                     DateTimeToUnixTimestamp(DateTime.Now)
                     .ToString(CultureInfo.InvariantCulture),

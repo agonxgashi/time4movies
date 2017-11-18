@@ -7,5 +7,6 @@ namespace time4movies.Repository.Administration.Interfaces
     public interface IAppUserRepo
     {
         bool CreateUser(AppUser user);
+        AppUser LogInUser(AppUser user);
     }
 }
