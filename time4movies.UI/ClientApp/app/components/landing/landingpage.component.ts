@@ -3,6 +3,10 @@ import { JsonPipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
 import { Component } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+
 
 
 @Component({
@@ -10,7 +14,8 @@ import { LogInSrv } from "../../services/logInService";
     templateUrl: './landingpage.component.html',
     styles: [require('./landing.component.css')]
 })
-export class LandingPageComponent{  
+export class LandingPageComponent{
+   
     userToEdit: AppUser;
     showLogIn : boolean = true;
 
@@ -41,11 +46,20 @@ export class LandingPageComponent{
             .subscribe(
                 (res) => { },
                 (err) => { }
-            )
+        )
+     
+        
+       
+        
     }
 
     blurContSwitch() {
         this.userToEdit = new AppUser();
+        
         this.showLogIn  = !this.showLogIn;
     }
+
+
+
+
 }
