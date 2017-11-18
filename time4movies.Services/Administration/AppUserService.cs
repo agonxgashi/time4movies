@@ -15,9 +15,9 @@ namespace time4movies.Services.Administration
             this._appUserRepo = u;
         }
 
-        public void CreateUser(AppUser user)
+        public bool CreateUser(AppUser user)
         {
-            _appUserRepo.CreateUser(user);
+            return _appUserRepo.CreateUser(user);
         }
     }
 }

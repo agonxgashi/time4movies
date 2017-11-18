@@ -3,6 +3,7 @@ using time4movies.Models;
 using System.Data;
 using System.Data.SqlClient;
 using time4movies.Repository.Administration.Interfaces;
+using time4movies.Models.Error;
 
 namespace time4movies.Repository.Administration
 {
@@ -26,13 +27,17 @@ namespace time4movies.Repository.Administration
                     com.ExecuteNonQuery();
                     return true;
                 }
-                catch (Exception e) { return false; }
+                catch (Exception e)
+                {
+                    AppError er = new AppError()
+                    {
+                        UserId           = user.Id,
+                        ExceptionMessage = e.Message
+                    };
+                    Error.AppErrorRepo.InsertError(er);
+                    return false;
+                }
             }
-        }
-
-        void IAppUserRepo.CreateUser(AppUser user)
-        {
-            throw new NotImplementedException();
         }
     }
 }

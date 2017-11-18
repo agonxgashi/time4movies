@@ -7,6 +7,6 @@ namespace time4movies.Services.Administration.Interfaces
 {
     public interface IAppUserService
     {
-        void CreateUser(AppUser user);
+        bool CreateUser(AppUser user);
     }
 }
