@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using time4movies.Models.Logic;
+﻿using time4movies.Models.Logic;
 using time4movies.Repository.Logic.Interfaces;
 
 namespace time4movies.Services.Logic

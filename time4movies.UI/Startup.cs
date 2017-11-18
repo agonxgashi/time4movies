@@ -13,8 +13,8 @@ using time4movies.Repository.Administration.Interfaces;
 using time4movies.Repository.Logic.Interfaces;
 using time4movies.Services.Administration.Interfaces;
 using time4movies.Services.Administration;
-using time4movies.Services.Logic.Interfaces;
 using time4movies.Services.Logic;
+using time4movies.Services.Logic.Interfaces;
 
 namespace time4movies.UI
 {
