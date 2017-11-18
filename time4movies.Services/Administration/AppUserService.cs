@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using time4movies.Models;
+﻿using time4movies.Models;
 using time4movies.Repository.Administration.Interfaces;
 
 namespace time4movies.Services.Administration
@@ -15,9 +12,9 @@ namespace time4movies.Services.Administration
             this._appUserRepo = u;
         }
 
-        public void CreateUser(AppUser user)
+        public bool CreateUser(AppUser user)
         {
-            _appUserRepo.CreateUser(user);
+            return _appUserRepo.CreateUser(user);
         }
 
         public AppUser LogInUser(AppUser user)

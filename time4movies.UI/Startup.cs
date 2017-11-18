@@ -8,11 +8,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
 using time4movies.UI.Auth;
 using time4movies.Repository;
-using time4movies.Services;
 using time4movies.Repository.Administration;
 using time4movies.Repository.Administration.Interfaces;
+using time4movies.Repository.Logic.Interfaces;
 using time4movies.Services.Administration.Interfaces;
 using time4movies.Services.Administration;
+using time4movies.Services.Logic;
+using time4movies.Services.Logic.Interfaces;
 
 namespace time4movies.UI
 {
@@ -29,7 +31,9 @@ namespace time4movies.UI
         public void ConfigureServices(IServiceCollection services)
         {
             DbHelper.ConnectionString = "Server=mssql4.gear.host;Database=time4moviesdb;User Id=time4moviesdb;Password=riinvest@12;";
-            services.AddTransient<IAppUserRepo, AppUserRepo>();
+            services.AddTransient<IWatchedRepo   , WatchedRepo>();
+            services.AddTransient<IWatchedService, WatchedService>();
+            services.AddTransient<IAppUserRepo   , AppUserRepo>();
             services.AddTransient<IAppUserService, AppUserService>();
 
             //string t = TokenGenerator.Build();

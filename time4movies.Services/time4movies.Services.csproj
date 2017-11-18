@@ -9,4 +9,8 @@
     <ProjectReference Include="..\time4movies.Models\time4movies.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Movies\Interfaces\" />
+  </ItemGroup>
+
 </Project>
