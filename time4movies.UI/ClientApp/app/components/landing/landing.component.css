@@ -1,35 +1,20 @@
 
 
-  main{   
-    background: url('./../../../img/fantastic_four_2015-wide.jpg') fixed no-repeat;
+.landingContainer {
+    background: url('./../../../img/fantastic_four_2015-widePS.png') fixed no-repeat;
     background-size: cover;
     height: 100vh;
-  }
-.blurCont {
-    background: inherit;
-    border-radius: 8px;
-    height: 500px;
-    left: 20%;
-    margin-left: -175px;
-    margin-top: -250px;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    width: 350px;
+    padding: 20px;
+  
 }
-    .blurCont:before {
-        background: inherit;
-        bottom: 0;
-        box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
-        content: "";
-        filter: blur(10px);
-        height: 550px;
-        left: -25px;
-        position: absolute;
-        right: 0;
-        top: -25px;
-        width: 400px;
-    }
+.dark-modal {
+    background-color: #0F212D;
+    padding-top:20px;
+    padding-bottom:40px;
+}
+
+
+ 
 
 
 
@@ -46,36 +31,40 @@
     transform: translate(-50%,-50%);
   }
 
-  input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"] {
     background-color: rgba(1,17,16, 0.55);
     border-radius: 10px;
     border: 0;
-    color: rgba(255,255,255, 0.8);
+    color: #00FF89;
     font-size: 16px;
     outline: 0;
     padding: 8px 8px 8px 8px;
     text-align: center;
-  }
+    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+}
 
 
-  input[type="submit"]{
-    background: #33ee77;
-    border-radius: 8px;
+input[type="submit"] {
+    background: #00FF89;
+    border-radius: 10px;
     border: 2px solid #33ee77;
     color: white;
-    cursor: pointer;
     font-weight: bold;
-    height: 60px;
+    height: 40px;
     outline: 0 !important;
-    padding-bottom: 0;
-    transition: all 300ms ease-in-out;
-    width: 100%;
-  }
+    display:inline-block;
+    margin-right: -50%;
+    /*transition: all 300ms ease-in-out;*/
+    align-self: stretch;
+}
 
-  input[type="submit"]:hover{
-    background: #011110;
-    color: #33ee77;
-  }
+    input[type="submit"]:hover {
+        background: #0F212D;
+        color: #33ee77;
+        
+    }
 
 .blurCont > form > span {
     color: rgba(255,255,255, 0.8);
