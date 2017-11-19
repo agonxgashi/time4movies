@@ -1,6 +1,7 @@
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { JsonPipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
+import { Quote } from './../../models/Movie/Quote'
 import { Component } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -17,6 +18,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LandingPageComponent{
    
     userToEdit: AppUser;
+    quote: Quote;
     showLogIn : boolean = true;
 
     constructor(private http: Http, private ls: LogInSrv) {
@@ -52,6 +54,7 @@ export class LandingPageComponent{
        
         
     }
+
 
     blurContSwitch() {
         this.userToEdit = new AppUser();

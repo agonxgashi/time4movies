@@ -23,9 +23,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\models\Movie\Quote.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\time4movies.DAL\time4movies.Repository.csproj" />
     <ProjectReference Include="..\time4movies.Models\time4movies.Models.csproj" />
     <ProjectReference Include="..\time4movies.Services\time4movies.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\Quote.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
