@@ -1,37 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
-using time4movies.Models;
-using time4movies.Models.Error;
 using time4movies.Models.Movies;
 
 namespace time4movies.Repository.Movies
 {
     public class QuoteRepo : IQuoteRepo
     {
-        public bool RandomQuote()
+        public QuoteModel RandomQuote()
         {
            using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
-           {
-                    Quote quote = new Quote();
-                    SqlCommand com = new SqlCommand("Movie.usp_Quotes_GetQuotes", con);
-                    com.CommandType = CommandType.StoredProcedure;
-                    
+           {              
+                SqlCommand com = new SqlCommand("Movie.usp_Quotes_GetQuotes", con);
+                com.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
                     con.Open();
-                    using (SqlDataReader dr = com.ExecuteReader())
+                    var r = com.ExecuteReader();
+
+                    if (r.Read())
                     {
-                        
-                        while (dr.Read())
+                        return new QuoteModel()
                         {
-                        
-                        quote.Quotes = dr["Quote"].ToString();
-                        quote.Author = dr["Author"].ToString();
+                            Author = r["Author"].ToString(),
+                            Quote = r["Quote"].ToString()
+                        };
                     }
-                    }
-                    com.ExecuteNonQuery();
-                    return true;
+                }
+                catch (System.Exception e)
+                {
+                    Error.AppErrorRepo.InsertError(new Models.Error.AppError()
+                    {
+                        ExceptionMessage = e.Message.ToString()
+                    });
+                }
+                return new QuoteModel();
            }
         }
     }

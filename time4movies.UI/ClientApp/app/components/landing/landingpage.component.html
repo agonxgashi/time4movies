@@ -7,6 +7,16 @@
     <span class="col-md-2 col-xs-4 col-sm-3"> 
         <input type="submit" class="col-xs-12" data-toggle="modal" value="Sing In" data-target="#myModal1" />
     </span>
+
+    <div style="clear:both"></div>
+    <br />
+    <br />
+    <br />
+
+    <div *ngIf="quote" class="col-md-4 col-md-offset-2" style="color:white">
+        <h1>{{quote.quote}}</h1>
+        <label class="pull-right">[{{quote.author}}] </label>
+    </div>
     
     
     <span class="imgPortal col-md-2 col-md-offset-10 col-xs-6 col-xs-offset-4">
@@ -14,6 +24,8 @@
         <a id="img" href="https://instagram.com"> <img src="../../../img/2.png" /></a>
         <a id="img" href="https://facebook.com">  <img src="../../../img/1.png" /></a>
     </span>
+
+
    
 
 

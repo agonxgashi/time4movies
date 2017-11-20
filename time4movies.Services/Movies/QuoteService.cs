@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using time4movies.Repository;
-using time4movies.Models;
-using time4movies.Models.Movies;
+﻿using time4movies.Models.Movies;
 
 namespace time4movies.Services.Movies
 {
@@ -14,7 +9,7 @@ namespace time4movies.Services.Movies
         {
             this._iqr = iqr;
         }
-        public bool RandomQuote()
+        public QuoteModel RandomQuote()
         {
             return _iqr.RandomQuote();
         }

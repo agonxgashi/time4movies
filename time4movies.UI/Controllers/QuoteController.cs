@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using time4movies.Services.Administration.Interfaces;
-using time4movies.Models;
-using time4movies.UI.Auth;
+﻿using Microsoft.AspNetCore.Mvc;
+using time4movies.Models.Movies;
 
 namespace time4movies.UI.Controllers
 {
@@ -20,10 +14,10 @@ namespace time4movies.UI.Controllers
 
         }
 
-        [HttpPost("[action]")]
-        public void RandomQuote()
+        [HttpGet("[action]")]
+        public QuoteModel RandomQuote()
         {
-            this._iqr.RandomQuote();
+            return this._iqr.RandomQuote();
         }
     }
 }

@@ -15,6 +15,9 @@ using time4movies.Services.Administration.Interfaces;
 using time4movies.Services.Administration;
 using time4movies.Services.Logic;
 using time4movies.Services.Logic.Interfaces;
+using time4movies.Repository.Movies;
+using time4movies.Services.Movies;
+using time4movies.Services.Movies.Interfaces;
 
 namespace time4movies.UI
 {
@@ -35,6 +38,8 @@ namespace time4movies.UI
             services.AddTransient<IWatchedService, WatchedService>();
             services.AddTransient<IAppUserRepo   , AppUserRepo>();
             services.AddTransient<IAppUserService, AppUserService>();
+            services.AddTransient<IQuoteRepo     , QuoteRepo>();
+            services.AddTransient<IQuoteService  , QuoteService>();
 
             //string t = TokenGenerator.Build();
 

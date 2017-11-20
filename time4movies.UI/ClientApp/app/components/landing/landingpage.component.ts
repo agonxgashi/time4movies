@@ -2,7 +2,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { JsonPipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -15,7 +15,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     templateUrl: './landingpage.component.html',
     styles: [require('./landing.component.css')]
 })
-export class LandingPageComponent{
+export class LandingPageComponent implements OnInit{
    
     userToEdit: AppUser;
     quote: Quote;
@@ -24,6 +24,12 @@ export class LandingPageComponent{
     constructor(private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
         this.showLogIn = true;
+
+    }
+
+    ngOnInit(){
+        this.quote = new Quote();
+        this.getRandomQuote();
     }
 
     login() {
@@ -49,10 +55,14 @@ export class LandingPageComponent{
                 (res) => { },
                 (err) => { }
         )
-     
-        
-       
-        
+    }
+
+    getRandomQuote() {
+        this.http.get("/api/Quote/RandomQuote")
+            .subscribe(
+            (res) => { this.quote = res.json(); console.log(res.json()); console.log(this.quote) },
+                (err) => { }
+            )
     }
 
 

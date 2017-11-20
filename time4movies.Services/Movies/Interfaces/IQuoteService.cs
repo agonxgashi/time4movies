@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using time4movies.Models;
+﻿using time4movies.Models.Movies;
 
 namespace time4movies.Services.Movies.Interfaces
 {
     public interface IQuoteService
     {
-        bool RandomQuote();
+        QuoteModel RandomQuote();
     }
 }
