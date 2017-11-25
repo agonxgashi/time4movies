@@ -3,7 +3,7 @@
 .landingContainer {
     background: url('./../../../img/fantastic_four_2015-widePS.png') fixed no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 99.85vh;
     padding: 20px;
   
 }
@@ -12,10 +12,19 @@
     padding-top:20px;
     padding-bottom:40px;
 }
-.imgPortal{
-    text-align:right;
-    padding-top:25%;
-}
+/*.imgPortal{*/
+/*    height: 5vh;*/
+/**/
+/*}*/
+/**/
+/*.imgPortal > a {*/
+/*    margin-right: 10px;*/
+/*    padding: 5px;*/
+/*    width: 15px;*/
+/*}*/
+
+
+
 
  
 

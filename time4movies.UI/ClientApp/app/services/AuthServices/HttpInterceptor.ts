@@ -8,14 +8,15 @@ import { LogInSrv } from './../logInService'
 
 @Injectable()
 export class InterceptedHttp extends Http {
-    constructor(backend: ConnectionBackend, defaultOptions: RequestOptions, private _logInSrv: LogInSrv) {
+    constructor(backend: ConnectionBackend, defaultOptions: RequestOptions, private loginSrv: LogInSrv) {
+    // constructor(backend: ConnectionBackend, defaultOptions: RequestOptions, private _logInSrv?: LogInSrv) {
         super(backend, defaultOptions);
     }
 
     request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
        // return super.request(url, options);
         return super.request(url, options).catch((error: Response) => {
-            alert('Error Code: ' + error.status);
+            console.error('Error Code: ' + error.status);
             if ((error.status === 401 || error.status === 403 || error.status === 302)) {
                 console.log('The authentication session expires or the user is not authorised. Force refresh of the current page.');
                 window.location.href = '/landing';
@@ -25,6 +26,7 @@ export class InterceptedHttp extends Http {
     }
 
     get(url: string, options?: RequestOptionsArgs): Observable<Response> {
+        console.log('GET');
         url = this.updateUrl(url);
         return super.get(url, this.getRequestOptionArgs(options));
     }
@@ -49,6 +51,7 @@ export class InterceptedHttp extends Http {
     }
 
     private getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
+        console.error('AutHeader');
         if (options == null) {
             options = new RequestOptions();
         }
@@ -59,8 +62,8 @@ export class InterceptedHttp extends Http {
         
         if (options.headers != undefined) {
             // let str = this._logInSrv.getCookieValue().toString();
-            let str = "Test authhh";
-            options.headers.append('Authorization', str);    
+            let str = this.loginSrv.getCookieValue();
+            options.headers.append('Authorization', "Bearer " + str);    
         }
 
                 

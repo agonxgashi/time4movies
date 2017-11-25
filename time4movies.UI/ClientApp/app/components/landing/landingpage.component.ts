@@ -72,6 +72,10 @@ export class LandingPageComponent implements OnInit{
         this.showLogIn  = !this.showLogIn;
     }
 
+    clearObject() {
+        this.userToEdit = new AppUser();
+    }
+
 
 
 

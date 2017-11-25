@@ -11,7 +11,7 @@ import * as JWT from 'jwt-decode';
 @Injectable()
 export class LogInSrv {
     private name : string = "jwt";
-    constructor(private _http: Http, private router?: Router) {
+    constructor(private _http: Http) {
     }
 
     private retrieve():string { 
@@ -29,7 +29,7 @@ export class LogInSrv {
     }
 
     public setCookieValue(val: string){
-        document.cookie = this.name + "=" + val;
+        document.cookie = this.name + "=" + val.replace('"', '').replace('"', '');
     }
 
     public getCookieValue(): string{

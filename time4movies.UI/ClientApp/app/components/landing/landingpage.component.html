@@ -1,11 +1,11 @@
 <div class="landingContainer col-md-12">
 
-   <span class="col-md-2 col-md-offset-8 col-xs-4 col-xs-offset-4 col-sm-3 col-sm-offset-6">
-       <input type="submit" class="col-xs-12" data-toggle="modal"   value="Sing Up" data-target="#myModal2" />
+    <span class="col-md-2 col-md-offset-8 col-xs-4 col-xs-offset-4 col-sm-3 col-sm-offset-6">
+        <input type="submit" class="col-xs-12" data-toggle="modal" (click)="clearObject()"  value="Sing Up" data-target="#myModal2" />
     </span>
 
     <span class="col-md-2 col-xs-4 col-sm-3"> 
-        <input type="submit" class="col-xs-12" data-toggle="modal" value="Sing In" data-target="#myModal1" />
+        <input type="submit" class="col-xs-12" data-toggle="modal" (click)="clearObject()" value="Sing In" data-target="#myModal1" />
     </span>
 
     <div style="clear:both"></div>
@@ -19,60 +19,64 @@
     </div>
     
     
-    <span class="imgPortal col-md-2 col-md-offset-10">
-        <a id="img" href="https://twitter.com">   <img src="../../../img/3.png" /> </a>
-        <a id="img" href="https://instagram.com"> <img src="../../../img/2.png" /></a>
-        <a id="img" href="https://facebook.com">  <img src="../../../img/1.png" /></a>
-    </span>
+
 
 
     <div style="clear:both"></div>
 
 
        
-        <div id="myModal1" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content dark-modal">
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content dark-modal">
                   
-                    <div class="modal-body">
-                        <input  class="col-md-6 col-md-offset-3"type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
-                        <br>
-                        <br />
-                        <input  class="col-md-6 col-md-offset-3"type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
-                        <br>
-                        <br />
-                        <input  class="col-md-6 col-md-offset-3"type="submit" (click)="login()" value="Sing In"><br>
-                    </div>
+                <div class="modal-body">
+                    <input  class="col-md-6 col-md-offset-3"type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+                    <br>
+                    <br />
+                    <input  class="col-md-6 col-md-offset-3"type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+                    <br>
+                    <br />
+                    <input  class="col-md-6 col-md-offset-3"type="submit" (click)="login()" value="Sing In"><br>
+                </div>
                     
-                </div>
-
             </div>
+
         </div>
-        <div id="myModal2" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content dark-modal">
+    </div>
+    <div id="myModal2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content dark-modal">
              
-                    <div class="modal-body">
-                        <input class="col-md-6 col-md-offset-3" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br>
-                        <br>
-                        <br />
-                        <input class="col-md-6 col-md-offset-3" type="text" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br>
-                        <br>
-                        <br />
-                        <input class="col-md-6 col-md-offset-3" type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
-                        <br>
-                        <br />
-                        <input class="col-md-6 col-md-offset-3" type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
-                        <br>
-                        <br />
-                        <input class="col-md-6 col-md-offset-3" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
-                        <br>
-                        <br />
-                        <input class="col-md-6 col-md-offset-3" type="submit" (click)="signUp   ()" value="Sing Up"><br>
-                    </div>
-              
+                <div class="modal-body">
+                    <input class="col-md-6 col-md-offset-3" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br>
+                    <br>
+                    <br />
+                    <input class="col-md-6 col-md-offset-3" type="text" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br>
+                    <br>
+                    <br />
+                    <input class="col-md-6 col-md-offset-3" type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+                    <br>
+                    <br />
+                    <input class="col-md-6 col-md-offset-3" type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+                    <br>
+                    <br />
+                    <input class="col-md-6 col-md-offset-3" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
+                    <br>
+                    <br />
+                    <input class="col-md-6 col-md-offset-3" type="submit" (click)="signUp   ()" value="Sing Up"><br>
                 </div>
-
+              
             </div>
+
         </div>
+    </div>
 </div>
+
+<span class="imgPortal pull-right col-md-2">
+<!--    <a id="img" href="https://twitter.com">   <img src="../../../img/facebook.svg" /> </a>-->
+<!--    <a id="img" href="https://twitter.com">   <img src="../ClientApp/img/facebook.svg" /> </a>-->
+<!--    <a id="img" href="https://twitter.com">   <img src="./../ClientApp/img/twitter.svg" /> </a>-->
+<!--    <a id="img" href="https://instagram.com"> <img src="../../../img/2.png" /></a>-->
+<!--    <a id="img" href="https://facebook.com">  <img src="../../../img/1.png" /></a>-->
+</span>
