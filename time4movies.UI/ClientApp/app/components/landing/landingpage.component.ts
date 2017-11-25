@@ -4,7 +4,13 @@ import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Directive, forwardRef,
+    Attribute, OnChanges, SimpleChanges, Input
+    } from '@angular/core';
+import {
+    NG_VALIDATORS, Validator,
+    Validators, AbstractControl, ValidatorFn
+    } from '@angular/forms';
 
 
 
