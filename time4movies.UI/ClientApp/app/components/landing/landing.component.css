@@ -78,6 +78,12 @@ input[type="submit"] {
         
     }
 
+    input[type="submit"]:disabled {
+        background: #0F212D;
+        color: #AE171F;
+        border: 2px solid #AE171F;
+    }
+
 .blurCont > form > span {
     color: rgba(255,255,255, 0.8);
     cursor: pointer;

@@ -65,9 +65,19 @@
                            #name="ngModel" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
                     <br>
 
-                        <span class="text-danger" [hidden]="!name.hasError('pattern')">Not Valid eMail</span>
+                        <span class="text-danger col-md-6 col-md-offset-3" [hidden]="!name.hasError('pattern')">Please write a valid email!</span>
                     <br />
-                    <input class="col-md-6 col-md-offset-3" type="submit" (click)="signUp   ()" value="Sing Up"><br>
+                    <br />
+                    <input [disabled]="(!userToEdit.username) 
+                                       || (!userToEdit.firstName) 
+                                       || (!userToEdit.lastName) 
+                                       || (!userToEdit.password) 
+                                       || (!userToEdit.email) 
+                                       || (name.hasError('pattern'))" 
+                           class="col-md-6 col-md-offset-3"
+                           type="submit" 
+                           (click)="signUp()" 
+                           value="Sing Up"><br>
                 </div>
               
             </div>
