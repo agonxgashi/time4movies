@@ -9,10 +9,10 @@ namespace time4movies.Models.Movies
         public int page { get; set; }
         public int total_results { get; set; }
         public int total_pages { get; set; }
-        public Result[] results { get; set; }
+        public BaseMovieModel[] results { get; set; }
     }
 
-    public class Result
+    public class BaseMovieModel
     {
         public int vote_count { get; set; }
         public int id { get; set; }
