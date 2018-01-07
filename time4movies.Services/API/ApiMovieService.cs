@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using time4movies.Models.API;
 using time4movies.Models.Movies;
 using time4movies.Services.Logic.Interfaces;
 
 namespace time4movies.Services.Logic
 {
-    class ApiMovieService : IApiMoviesService
+    public class ApiMovieService : IApiMoviesService
     {
         public MovieModel GetMovieById(string movieId)
         {

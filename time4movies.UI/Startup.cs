@@ -38,14 +38,14 @@ namespace time4movies.UI
             ApiHelper.ApiToken         = Configuration["APISettings:ApiToken"];
             ApiHelper.PathBackdrop     = Configuration["APISettings:PathBackdrop"];
 
-            services.AddTransient<IWatchedRepo   , WatchedRepo>();
-            services.AddTransient<IWatchedService, WatchedService>();
-            services.AddTransient<IAppUserRepo   , AppUserRepo>();
-            services.AddTransient<IAppUserService, AppUserService>();
-            services.AddTransient<IQuoteRepo     , QuoteRepo>();
-            services.AddTransient<IQuoteService  , QuoteService>();
+            services.AddTransient<IWatchedRepo     , WatchedRepo>();
+            services.AddTransient<IWatchedService  , WatchedService>();
+            services.AddTransient<IAppUserRepo     , AppUserRepo>();
+            services.AddTransient<IAppUserService  , AppUserService>();
+            services.AddTransient<IQuoteRepo       , QuoteRepo>();
+            services.AddTransient<IQuoteService    , QuoteService>();
+            services.AddTransient<IApiMoviesService, ApiMovieService>();
 
-            //string t = TokenGenerator.Build();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 
                     .AddJwtBearer(options => {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace time4movies.Models.Movies
+﻿namespace time4movies.Models.Movies
 {
     public class MovieModel : BaseMovieModel
     { 
