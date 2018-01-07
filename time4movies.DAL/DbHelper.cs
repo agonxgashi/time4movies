@@ -8,6 +8,6 @@ namespace time4movies.Repository
     {
 
         public static string ConnectionString { get; set; }
-
+        
     }
 }

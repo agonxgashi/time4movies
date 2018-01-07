@@ -18,6 +18,7 @@ using time4movies.Services.Logic.Interfaces;
 using time4movies.Repository.Movies;
 using time4movies.Services.Movies;
 using time4movies.Services.Movies.Interfaces;
+using time4movies.Models.API;
 
 namespace time4movies.UI
 {
@@ -33,7 +34,10 @@ namespace time4movies.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            DbHelper.ConnectionString = "Server=mssql4.gear.host;Database=time4moviesdb;User Id=time4moviesdb;Password=riinvest@12;";
+            DbHelper.ConnectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            ApiHelper.ApiToken         = Configuration["APISettings:ApiToken"];
+            ApiHelper.PathBackdrop     = Configuration["APISettings:PathBackdrop"];
+
             services.AddTransient<IWatchedRepo   , WatchedRepo>();
             services.AddTransient<IWatchedService, WatchedService>();
             services.AddTransient<IAppUserRepo   , AppUserRepo>();
