@@ -6,7 +6,7 @@ namespace time4movies.Models.API
 {
     public class APIQueries
     {
-        public static string SearchByMovieId_Query(int movieId)
+        public static string SearchByMovieId_Query(string movieId)
         {
             return $"https://api.themoviedb.org/3/movie/{movieId}?api_key={ApiHelper.ApiToken}";
         }
@@ -31,7 +31,11 @@ namespace time4movies.Models.API
 
     }
 
-    public enum PosterSize
+    //Possible options for Movie Poster path size
+    //Requiring any other size than these will result on error response! 
+    //That's a bad thing!
+    //Do you want that? Ofc no. So don't touch this.
+    public enum PosterSize 
     {
         w92,
         w154,
