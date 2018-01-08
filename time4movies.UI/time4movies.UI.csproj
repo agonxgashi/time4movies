@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\models\Movie\Genre.ts" />
+    <None Remove="ClientApp\app\models\Movie\Production_Companies.ts" />
+    <None Remove="ClientApp\app\models\Movie\Production_Countries.ts" />
     <None Remove="ClientApp\app\models\Movie\Quote.ts" />
+    <None Remove="ClientApp\app\models\Movie\Spoken_Languages.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +38,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\BaseMovieModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\MovieListModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\Genre.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\MovieModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\Production_Companies.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\Production_Countries.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\Movie\Quote.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\Movie\Spoken_Languages.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

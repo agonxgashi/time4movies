@@ -4,8 +4,9 @@ import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
+import { Router } from "@angular/router";
 import { Directive, forwardRef,
-    Attribute, OnChanges, SimpleChanges, Input
+    Attribute, OnChanges, SimpleChanges, Input, ViewChild
     } from '@angular/core';
 import {
     NG_VALIDATORS, Validator,
@@ -16,18 +17,17 @@ import {
 
 
 
-@Component({
+@Component( {
     selector: 'landingpage',
     templateUrl: './landingpage.component.html',
     styles: [require('./landing.component.css')]
 })
 export class LandingPageComponent implements OnInit{
-   
     userToEdit: AppUser;
     quote: Quote;
     showLogIn : boolean = true;
 
-    constructor(private http: Http, private ls: LogInSrv) {
+    constructor(private router: Router, private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
         this.showLogIn = true;
 
@@ -50,7 +50,10 @@ export class LandingPageComponent implements OnInit{
                 console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
             },
             (err) => { }
-            )
+        )
+        this.router.navigate(['/home']);
+        this.clearObject();
+    
     }
 
     signUp() {
