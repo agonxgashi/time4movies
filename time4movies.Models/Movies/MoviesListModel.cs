@@ -29,7 +29,7 @@ namespace time4movies.Models.Movies
 
         public string FullPath
         {
-            get { return ApiHelper.PathBackdrop + this.poster_path; };
+            get { return APIQueries.ImageFullPath_Query(this.poster_path, PosterSize.w154); }
         }
     }
 
