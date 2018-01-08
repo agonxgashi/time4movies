@@ -47,12 +47,14 @@ export class LandingPageComponent implements OnInit{
                 console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                 console.log(res.text())
                 this.ls.setCookieValue(res.text())
+                {
+                    this.router.navigate(['/home']);
+                }
                 console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
             },
             (err) => { }
         )
-        this.router.navigate(['/home']);
-        this.clearObject();
+        
     
     }
 

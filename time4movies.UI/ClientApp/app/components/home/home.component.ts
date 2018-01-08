@@ -25,7 +25,7 @@ export class HomeComponent {
     }
     
     searchMovies() {
-        this.http.get("/api/Search/ByName" + this.queryUrl + this.name)    
+        this.http.get("/api/Search/ByName" + this.queryUrl + this.name )    
             .subscribe(
             (res) => { this.movie = res.json(); console.log(res.json()) },
             (err) => { }

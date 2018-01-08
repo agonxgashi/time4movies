@@ -35,15 +35,14 @@
 </header>
 <div class="container">
     <div class="row">
-        <br />
-        <div class="col-md-6 col-md-offset-3">
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" [(ngModel)]="name" placeholder="What are you looking for" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg"  (click)="searchMovies()" >
-                            <i class="glyphicon glyphicon-search"></i>
-                            </button>
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" [(ngModel)]="name" placeholder="Search for a movie...">
+                    <span class="input-group-addon">
+                        <button (click)="searchMovies()" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
                     </span>
                 </div>
             </div>
@@ -59,7 +58,7 @@
     <table >
         <tr>
             <td>
-                <a class="col-md-2 pull-left"><img src="{{d.poster_path}}"></a>
+                <a class="col-md-2 pull-left"><img src="{{d.fullPath}}"></a>
                 <h1 class="col-md-4">
                     Title: {{d.title}}
                 </h1>

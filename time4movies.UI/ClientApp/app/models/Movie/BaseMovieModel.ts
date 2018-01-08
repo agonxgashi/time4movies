@@ -16,5 +16,5 @@
     adult: boolean;
     overview: string;
     release_date: string;
-
+    fullPath: string;
 }
