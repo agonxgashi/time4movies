@@ -1,4 +1,6 @@
-﻿namespace time4movies.Models.Movies
+﻿using time4movies.Models.API;
+
+namespace time4movies.Models.Movies
 {
     public class MoviesListModel
     {
@@ -24,6 +26,11 @@
         public bool adult { get; set; }
         public string overview { get; set; }
         public string release_date { get; set; }
+
+        public string FullPath
+        {
+            get { return ApiHelper.PathBackdrop + this.poster_path; };
+        }
     }
 
 }
