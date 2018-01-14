@@ -3,6 +3,7 @@ using System;
 using System.Net.Http;
 using time4movies.Models.API;
 using time4movies.Models.Movies;
+using time4movies.Repository.Error;
 using time4movies.Services.Logic.Interfaces;
 
 namespace time4movies.Services.Logic
@@ -17,9 +18,12 @@ namespace time4movies.Services.Logic
             {
                 HttpClient httpClient = new HttpClient();
                 string body = httpClient.GetStringAsync(APIQueries.SearchByMovieId_Query(movieId)).Result;
-                momvie      = JsonConvert.DeserializeObject<MovieModel>(body);
+                momvie = JsonConvert.DeserializeObject<MovieModel>(body);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                AppErrorRepo.InsertError(ex);
+            }
 
             return momvie;
         }
@@ -34,9 +38,12 @@ namespace time4movies.Services.Logic
                 {
                     HttpClient httpClient = new HttpClient();
                     string body = httpClient.GetStringAsync(APIQueries.SearchByName_Query(name)).Result;
-                    list        = JsonConvert.DeserializeObject<MoviesListModel>(body);
+                    list = JsonConvert.DeserializeObject<MoviesListModel>(body);
                 }
-                catch (Exception ex) { }
+                catch (Exception ex)
+                {
+                    AppErrorRepo.InsertError(ex);
+                }
 
                 //List<TM_Movie> p = ProfileBLL.GetUserWatchedMovies(currentUserId);
 

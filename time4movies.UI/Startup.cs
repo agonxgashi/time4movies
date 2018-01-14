@@ -64,24 +64,11 @@ namespace time4movies.UI
                              };
                         options.Events = new JwtBearerEvents
                         {
-                            OnAuthenticationFailed = context =>
-                            {
-                                var a = context.Request.Headers;
-                                return Task.CompletedTask;
-                            },
-                            OnTokenValidated = context =>
-                            {
-                                var a = context.Request.Headers;
-                                return Task.CompletedTask;
-                            },
-                            OnMessageReceived = context =>
-                            {
-                                var a = context.Request.Headers;
-                                return Task.CompletedTask;
-                            }
+                            OnAuthenticationFailed = context => Task.CompletedTask,
+                            OnTokenValidated       = context => Task.CompletedTask,
+                            OnMessageReceived      = context => Task.CompletedTask
                         };
                     });
-
 
             services.AddMvc();
         }

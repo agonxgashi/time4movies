@@ -26,12 +26,7 @@ namespace time4movies.Repository.Logic.Interfaces
                 }
                 catch (Exception e)
                 {
-                    AppError er = new AppError()
-                    {
-                        UserId           = w.UserId,
-                        ExceptionMessage = e.Message
-                    };
-                    Error.AppErrorRepo.InsertError(er);
+                    Error.AppErrorRepo.InsertError(e, w.UserId);
                     return false;
                 }
             }
