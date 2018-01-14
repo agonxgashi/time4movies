@@ -45,6 +45,8 @@ namespace time4movies.UI
             services.AddTransient<IQuoteRepo       , QuoteRepo>();
             services.AddTransient<IQuoteService    , QuoteService>();
             services.AddTransient<IApiMoviesService, ApiMovieService>();
+            services.AddTransient<ICommentRepo     , CommentRepo>();
+            services.AddTransient<ICommentService  , CommentService>();
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 

@@ -27,5 +27,13 @@ namespace time4movies.Repository.Error
 
             }
         }
+
+        public static void InsertError(Exception error, int userId = -1)
+        {
+            AppError e         = new AppError();
+            e.ExceptionMessage = error.Message;
+            e.UserId           = userId;
+            InsertError(e);
+        }
     }
 }
