@@ -26,5 +26,11 @@ namespace time4movies.UI.Controllers
         {
             return _api.GetMovieById(id);
         }
+
+        [HttpGet("[action]")]
+        public MoviesListModel Trending()
+        {
+            return _api.GetTrendings();
+        }
     }
 }

@@ -54,5 +54,29 @@ namespace time4movies.Services.Logic
             }
             return list;
         }
+
+        public MoviesListModel GetTrendings()
+        {
+            MoviesListModel list = new MoviesListModel();
+
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+                string body = httpClient.GetStringAsync(APIQueries.DiscoverByPopularity_Query()).Result;
+                list = JsonConvert.DeserializeObject<MoviesListModel>(body);
+            }
+            catch (Exception ex)
+            {
+                AppErrorRepo.InsertError(ex);
+            }
+
+            //List<TM_Movie> p = ProfileBLL.GetUserWatchedMovies(currentUserId);
+
+            //foreach (TM_Movie wl in p) //Watched List
+            //    foreach (var rl in s.Results) //ResultList
+            //        if (wl.Id == rl.Id || wl.ImdbId == rl.Id.ToString())
+            //            rl.UserDataAboutMovie.IsWatched = true;
+            return list;
+        }
     }
 }
