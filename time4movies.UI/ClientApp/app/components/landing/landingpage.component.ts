@@ -76,6 +76,10 @@ export class LandingPageComponent implements OnInit{
             )
     }
 
+    getAllMovies() {
+
+    }
+
 
     blurContSwitch() {
         this.userToEdit = new AppUser();

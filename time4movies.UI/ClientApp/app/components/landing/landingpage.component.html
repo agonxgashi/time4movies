@@ -1,12 +1,12 @@
-<div class="landingContainer col-md-12">
+<!--<div class="landingContainer col-md-12">
 
     <span class="col-md-2 col-md-offset-8 col-xs-4 col-xs-offset-4 col-sm-3 col-sm-offset-6">
         <input type="submit" class="col-xs-12" data-toggle="modal" (click)="clearObject()"  value="Sing Up" data-target="#myModal2" />
     </span>
 
     <span class="col-md-2 col-xs-4 col-sm-3"> 
-        <input type="submit" class="col-xs-12" data-toggle="modal" (click)="login()" value="Sing In" /> <!--data-target="#myModal1"--> 
-    </span>
+        <input type="submit" class="col-xs-12" data-toggle="modal" (click)="login()" value="Sing In" />--> <!--data-target="#myModal1"--> 
+    <!--</span>
 
     <div style="clear:both"></div>
     <br />
@@ -22,11 +22,11 @@
 
 
 
-    <div style="clear:both"></div>
+    <div style="clear:both"></div>-->
 
 
        
-    <div id="myModal1" class="modal fade" role="dialog">
+    <!--<div id="myModal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content dark-modal">
                   
@@ -38,7 +38,7 @@
                     <br>
                     <br />
                     <input  class="col-md-6 col-md-offset-3"type="submit" value="Sing In" /> <!--(click)="login()"--> <!--data-dismiss="myModal1"--> <br>
-                </div>
+                <!--</div>
                     
             </div>
 
@@ -84,7 +84,7 @@
 
         </div>
     </div>
-</div>
+</div>-->
 
 <span class="imgPortal pull-right col-md-2">
 <!--    <a id="img" href="https://twitter.com">   <img src="../../../img/facebook.svg" /> </a>-->
@@ -93,3 +93,35 @@
 <!--    <a id="img" href="https://instagram.com"> <img src="../../../img/2.png" /></a>-->
 <!--    <a id="img" href="https://facebook.com">  <img src="../../../img/1.png" /></a>-->
 </span>
+
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+
+    <nav class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <div class="nav navbar-nav side-nav">
+            <img src="../../../img/logo/darkFont.png" width="400px" height="100px" />"
+            <div class="sideInputs">
+                <input class="col-md-8 col-md-offset-2" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br>
+                <br>
+                <br />
+                <input class="col-md-8 col-md-offset-2" type="text" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br>
+                <br>
+                <br />
+                <input class="col-md-8 col-md-offset-2" type="submit" (click)="driart()" value="Sing In" />
+
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />  <br />    
+
+                <div *ngIf="quote" class="col-md-8 col-md-offset-2  " style="color:white">
+                    <h1>{{quote.quote}}</h1>
+                    <label>[{{quote.author}}] </label>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="col-md-12 movieGrid">
+
+    </div>
+</div>
