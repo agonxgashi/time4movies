@@ -1,6 +1,6 @@
 
 
-.landingContainer {
+/*.landingContainer {
     background: url('./../../../img/fantastic_four_2015-widePS.png') fixed no-repeat;
     background-size: cover;
     height: 99.85vh;
@@ -11,7 +11,7 @@
     background-color: #0F212D;
     padding-top:20px;
     padding-bottom:40px;
-}
+}*/
 /*.imgPortal{*/
 /*    height: 5vh;*/
 /**/
@@ -30,7 +30,7 @@
 
 
 
-  form img{
+  /*form img{
     border-radius: 100%;
     width: 100%;
     
@@ -69,10 +69,9 @@ input[type="submit"] {
     display:inline-block;
     margin-right: -50%;
     /*transition: all 300ms ease-in-out;*/
-    align-self: stretch;
-}
+   
 
-    input[type="submit"]:hover {
+    /*input[type="submit"]:hover {
         background: #0F212D;
         color: #33ee77;
         
@@ -87,30 +86,107 @@ input[type="submit"] {
 .blurCont > form > span {
     color: rgba(255,255,255, 0.8);
     cursor: pointer;
+}/**/
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
 }
 
-.blurCont > form > span:hover {
-    text-decoration: underline;
+#wrapper {
+    padding-left: 0;
 }
 
+input[type="submit"] {
+    background: #00FF89;
+    border-radius: 10px;
+    border: 2px solid #33ee77;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    outline: 0 !important;
+    display: inline-block;
+    margin-right: -50%;
+    transition: all 300ms ease-in-out;
+    align-self: stretch;
+}
 
-  input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: rgba(255,255,255,0.4);
-  }
-  input::-moz-placeholder { /* Firefox 19+ */
-    color: rgba(255,255,255,0.4);
-  }
-  input:-ms-input-placeholder { /* IE 10+ */
-    color: rgba(255,255,255,0.4);
-  }
-  input:-moz-placeholder { /* Firefox 18- */
-    color: rgba(255,255,255,0.4);
-  }
+    input[type="submit"]:hover {
+        background: #0F212D;
+        color: #33ee77;
+    }
 
-  #landingQuote{
-    position: absolute;
-    top: 30%;
-    left: 60%;
-    color: whitesmoke
-  }
+    input[type="submit"]:disabled {
+        background: #0F212D;
+        color: #AE171F;
+        border: 2px solid #AE171F;
+    }
+
+input[type="text"], input[type="password"], input[type="email"] {
+    background-color: rgba(1,17,16, 0.55);
+    border-radius: 10px;
+    border: 0;
+    align-items: center;
+    color: #00FF89;
+    font-size: 16px;
+    outline: 0;
+    padding: 8px 8px 8px 8px;
+    text-align: center;
+    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 22px 10px;
+    }
+}
+
+/* Top Navigation */
+
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        width: 400px;
+        margin-left: -250px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        overflow-y: auto;
+        background-color: #0F212D;
+        /*background-color: #5A6B7D;*/
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+        height: 100%;
+    }
+
+    .sideInputs {
+        width: 400px;
+        height: 290px;
+        position: absolute;
+        top: 30%;
+        left: 38%;
+        margin-top: -147px;
+        margin-left: -144px;
+    }
+}
   
