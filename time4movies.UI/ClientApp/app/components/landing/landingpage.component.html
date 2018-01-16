@@ -114,14 +114,30 @@
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />  <br />    
 
                 <div *ngIf="quote" class="col-md-8 col-md-offset-2  " style="color:white">
-                    <h1>{{quote.quote}}</h1>
+                    <h2>{{quote.quote}}</h2>
                     <label>[{{quote.author}}] </label>
                 </div>
             </div>
 
         </div>
     </nav>
-    <div class="col-md-12 movieGrid ">
-
+  
+    <br />
+    <br />
+    <br />
+    <div class="col-md-12">
+        <input class="col-md-2 col-md-offset-2" type="text" placeholder="search" />
+        <div class="container" *ngIf="movie">
+            <a href="" class="item tilt-poster" *ngFor="let f of movie.results">
+                <div class="poster">
+                    <div>
+                        <img class="" src="{{f.fullPath}}" />
+                        <h4 class="voteavg">{{f.vote_average}}</h4>
+                    </div>
+                </div>
+                <p>{{f.title}}</p>
+            </a>
+        </div>
     </div>
-</div>
+    
+  

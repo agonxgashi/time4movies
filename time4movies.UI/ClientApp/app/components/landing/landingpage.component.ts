@@ -28,16 +28,20 @@ export class LandingPageComponent implements OnInit{
     quote: Quote;
     showLogIn: boolean = true;
     movie: MovieModel[];
+    query : string = "?id="
+    id: string;
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
         this.showLogIn = true;
+        
 
     }
 
     ngOnInit(){
         this.quote = new Quote();
         this.getRandomQuote();
+        this.getTrendinMovies();
     }
 
     login() {
@@ -88,7 +92,9 @@ export class LandingPageComponent implements OnInit{
 
     }
 
-
+    gotoMovie() {
+        this.router.navigate(['/home/']);
+    }
     blurContSwitch() {
         this.userToEdit = new AppUser();
         

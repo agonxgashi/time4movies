@@ -54,8 +54,8 @@
 <br />
 <br />
 <br />
-<div class="col-md-12" *ngFor="let d of movie.results">
-    <table >
+<div class="col-md-12" *ngIf="movie" >
+    <table *ngFor="let d of movie.results">
         <tr>
             <td>
                 <a class="col-md-2 pull-left"><img src="{{d.fullPath}}"></a>
