@@ -60,7 +60,7 @@ export class LandingPageComponent implements OnInit{
             },
             (err) => { }
         )
-        
+        this.router.navigate(['/home']);
     
     }
 
@@ -72,6 +72,7 @@ export class LandingPageComponent implements OnInit{
                 (res) => { },
                 (err) => { }
         )
+
     }
 
     getRandomQuote() {
@@ -79,7 +80,8 @@ export class LandingPageComponent implements OnInit{
             .subscribe(
             (res) => { this.quote = res.json(); console.log(res.json()); console.log(this.quote) },
                 (err) => { }
-            )
+        )
+
     }
 
     getTrendinMovies() {
@@ -91,9 +93,14 @@ export class LandingPageComponent implements OnInit{
             )
 
     }
-
     gotoMovie() {
-        this.router.navigate(['/home/']);
+        this.http.get("/api/Search/ById" + this.query + this.id)
+            .subscribe(
+            (res) => { this.movie = res.json(); console.log(res.json()) },
+            (err) => { }
+
+            )
+       
     }
     blurContSwitch() {
         this.userToEdit = new AppUser();

@@ -1,87 +1,96 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://mdbootstrap.com/previews/docs/latest/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css" rel="stylesheet">
-<header>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="3">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Watched</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item" style="color:#054B87">
-                    <a class="nav-link waves-effect waves-light">14 <i class="fa fa-envelope"></i></a>
-                </li>
-                <li class="nav-item" style="color:#054B87">
-                    <a class="nav-link waves-effect waves-light">8 <i class="fa fa-eye"></i></a>
-                </li>
-                <li class="nav-item"style="color:#054B87">
-                    <a class="nav-link waves-effect waves-light">1 <i class="fa fa-bullhorn"></i></a>
-                </li>
-            </ul>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <nav class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <div class="nav navbar-nav side-nav">
+            <img src="../../../img/logo/darkFont.png" width="400px" height="100px" />"
+            <div class="sideInputs">
+                <input class="col-md-12" type="submit"  name="profile"  value="Profile"><br>
+                <br>
+                <br />
+                <input class="col-md-12" type="submit"  name="trending"  value="Trending"><br>
+                <br>
+                <br />
+                <input class="col-md-12" type="submit"  name="watched" value="Watched" />
+
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />  <br />
+
+                <div *ngIf="quote" class="col-md-8 col-md-offset-2  " style="color:white">
+                    <h2>{{quote.quote}}</h2>
+                    <label>[{{quote.author}}] </label>
+                </div>
+            </div>
+
         </div>
     </nav>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container">
-                <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control" [(ngModel)]="name" placeholder="Search for a movie...">
-                    <span class="input-group-addon">
-                        <button (click)="searchMovies()" type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div id="imaginary_container">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Search for a movie...">
+                        <span class="input-group-addon">
+                            <button (click)="searchMovies()" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<br />
-<br />
-<br />
-<br />
-<br />
-<div class="col-md-12" *ngIf="movie" >
-    <table *ngFor="let d of movie.results">
-        <tr>
-            <td>
-                <a class="col-md-2 pull-left"><img src="{{d.fullPath}}"></a>
-                <h1 class="col-md-4">
-                    Title: {{d.title}}
-                </h1>
-                <h2 class="col-md-10 col-lg-offset-2 pull-right">
-                    Overview: {{d.overview}}
-                </h2>
-                <a class="col-md-3 col-md-offset-2 pull-right">
-                    Release Date: {{d.release_date}}
-                </a>
-                <a class="col-md-3 col-md-offset-8 pull-right">
-                    Vote Average: {{d.vote_average}}
-                </a>
-                <a class="col-md-3 col-md-offset-8 pull-right">
-                    Vote Count: {{d.vote_count}}
-                </a>
-            </td>
-        </tr>
-    </table>    
     <br />
     <br />
     <br />
     <br />
     <br />
-    <br />
+    <!--<div class="col-md-12" *ngIf="movie">
+        <div *ngFor="let d of movie.results">
+            <table >
+                <tr>
+                    <td>
+                        <a class="col-md-2 pull-left"><img src="{{d.fullPath}}"></a>
+                        <h1 class="col-md-4">
+                            Title: {{d.title}}
+                        </h1>
+                        <h2 class="col-md-10 col-lg-offset-2 pull-right">
+                            Overview: {{d.overview}}
+                        </h2>
+                        <a class="col-md-3 col-md-offset-2 pull-right">
+                            Release Date: {{d.release_date}}
+                        </a>
+                        <a class="col-md-3 col-md-offset-8 pull-right">
+                            Vote Average: {{d.vote_average}}
+                        </a>
+                        <a class="col-md-3 col-md-offset-8 pull-right">
+                            Vote Count: {{d.vote_count}}
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>-->
+    <!--<div class="col-md-12">
+        <input class="col-md-2 col-md-offset-2" type="text" placeholder="search" />
+        <div class="container" *ngIf="movie">
+            <a href="" (click)="gotoMovie()" class="item tilt-poster" *ngFor="let f of movie.results">
+                <div class="poster">
+                    <div>
+                        <img class="" src="{{f.fullPath}}" />
+                        <h4 class="voteavg">{{f.vote_average}}</h4>
+                    </div>
+                </div>
+                <p>{{f.title}}</p>
+            </a>
+        </div>
+    </div>-->
+      
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-</div>
+    </div>

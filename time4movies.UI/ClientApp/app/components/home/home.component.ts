@@ -33,4 +33,13 @@ export class HomeComponent {
         )
         
     }
+    getTrendinMovies() {
+        this.http.get("/api/Search/Trending")
+            .subscribe(
+            (res) => { this.movie = res.json(); console.log(res.json()); console.log(this.movie) },
+            (err) => { }
+
+            )
+
+    }
 }

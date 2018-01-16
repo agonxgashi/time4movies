@@ -128,7 +128,7 @@
     <div class="col-md-12">
         <input class="col-md-2 col-md-offset-2" type="text" placeholder="search" />
         <div class="container" *ngIf="movie">
-            <a href="" class="item tilt-poster" *ngFor="let f of movie.results">
+            <a href=""  (click)="gotoMovie()" class="item tilt-poster" *ngFor="let f of movie.results">
                 <div class="poster">
                     <div>
                         <img class="" src="{{f.fullPath}}" />
