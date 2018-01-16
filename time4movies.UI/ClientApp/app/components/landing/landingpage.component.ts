@@ -5,6 +5,7 @@ import { Quote } from './../../models/Movie/Quote'
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { Router } from "@angular/router";
+import { MovieModel } from './../../models/Movie/MovieModel';
 import { Directive, forwardRef,
     Attribute, OnChanges, SimpleChanges, Input, ViewChild
     } from '@angular/core';
@@ -25,7 +26,8 @@ import {
 export class LandingPageComponent implements OnInit{
     userToEdit: AppUser;
     quote: Quote;
-    showLogIn : boolean = true;
+    showLogIn: boolean = true;
+    movie: MovieModel[];
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
@@ -76,7 +78,13 @@ export class LandingPageComponent implements OnInit{
             )
     }
 
-    getAllMovies() {
+    getTrendinMovies() {
+        this.http.get("/api/Search/Trending")
+            .subscribe(
+            (res) => { this.movie = res.json(); console.log(res.json()); console.log(this.movie) },
+            (err) => { }
+
+            )
 
     }
 
