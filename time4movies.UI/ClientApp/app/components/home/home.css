@@ -69,46 +69,31 @@ a {
     border: 0;
     background: transparent;
 }
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-
-@media(min-width:768px) {
-    body {
-        margin-top: 50px;
-    }
-    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
-}
-
-#wrapper {
-    padding-left: 0;
-}
-
 input[type="submit"] {
-    background: #00FF89;
+    background: #0F212D;
     border: 2px solid #33ee77;
     color: white;
     font-weight: bold;
     height: 40px;
-    outline: 0 !important;
-    display: inline-block;
+    position: relative;
     transition: all 300ms ease-in-out;
-    text-align:left;
 }
 
-.side-nav input[type="submit"]:hover {
+input[type="submit"]:hover {
     background: #0F212D;
     color: #33ee77;
 }
-.side-nav input[type="submit"]:active {
+input[type="submit"]:active {
     background: #0F212D;
     color: #33ee77;
 }
-.side-nav input[type="submit"]:disabled {
+ input[type="submit"]:disabled {
     background: #0F212D;
     color: #AE171F;
     border: 2px solid #AE171F;
 }
 
-.side-nav input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"] {
     background-color: rgba(1,17,16, 0.55);
     border-radius: 10px;
     border: 0;
@@ -122,52 +107,121 @@ input[type="submit"] {
     -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
-
-#page-wrapper {
-    width: 100%;
-    padding: 0;
-    background-color: #fff;
+.movieGrid img {
+    padding: 4px 6px;
+    background: rgba(51,51,51,.95);
+    color: #ebeced;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 8px;
 }
 
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 225px;
-    }
-
-    #page-wrapper {
-        padding: 22px 10px;
-    }
+.vote {
+    background-color: darkgoldenrod;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: 12%;
 }
 
-/* Top Navigation */
-
-
-/* Side Navigation */
-
-@media(min-width:768px) {
-    .side-nav {
-        position: fixed;
-        width: 400px;
-        margin-left: -250px;
-        border: none;
-        border-radius: 0;
-        border-top: 1px rgba(0,0,0,.5) solid;
-        overflow-y: auto;
-        background-color: #0F212D;
-        /*background-color: #5A6B7D;*/
-        bottom: 0;
-        overflow-x: hidden;
-        padding-bottom: 40px;
-        height: 100%;
-    }
-
-    .sideInputs {
-        width: 400px;
-        height: 290px;
-        position: absolute;
-        top: 30%;
-        left: 38%;
-        margin-top: -147px;
-        margin-left: -144px;
-    }
+.sidebar {
+    background-color: #0F212D;
+    position: fixed;
+    width: 20%;
+  
+    height: 100%;
 }
+
+
+
+
+h1 {
+    font-size: 3vw;
+    text-align: center;
+    padding: 2em;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 6em;
+    position: relative;
+}
+
+    .container .item {
+        margin: 1em;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .container .item .poster {
+            width: 190px;
+            height: 280px;
+            background-position: center;
+            background-size: cover;
+            margin-bottom: .5em;
+            box-shadow: 0 10px 17px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+        }
+
+        .container .item p {
+            width: 185px;
+            font-size: .9em;
+        }
+
+.mtt {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #999;
+    text-decoration: none;
+}
+
+    .mtt span {
+        color: #e74c3c;
+    }
+
+    .mtt:hover {
+        color: #666;
+    }
+
+        .mtt:hover span {
+            color: #c0392b;
+        }
+
+.container img {
+    width: 190px;
+    border-radius: 5px;
+}
+
+.voteavg {
+    text-align: right;
+}
+
+.searchTerm {
+    width: 35%;
+    border: 3px solid #00B4CC;
+    height: 35px;
+    border-radius: 5px;
+    color: #9DBFAF;
+    margin: 0 auto;
+    max-width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 6em;
+    position: relative;
+}
+
+    .searchTerm:focus {
+        color: #00B4CC;
+    }
+

@@ -28,8 +28,8 @@ export class LandingPageComponent implements OnInit{
     quote: Quote;
     showLogIn: boolean = true;
     movie: MovieModel[];
-    query : string = "?id="
-    id: string;
+    query : string = "?name="
+    name: string;
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
@@ -74,7 +74,15 @@ export class LandingPageComponent implements OnInit{
         )
 
     }
+    searchMovies() {
+        this.http.get("/api/Search/ByName" + this.query + this.name)
+            .subscribe(
+            (res) => { this.movie = res.json(); console.log(res.json()) },
+            (err) => { }
 
+            )
+
+    }
     getRandomQuote() {
         this.http.get("/api/Quote/RandomQuote")
             .subscribe(
@@ -93,15 +101,15 @@ export class LandingPageComponent implements OnInit{
             )
 
     }
-    gotoMovie() {
-        this.http.get("/api/Search/ById" + this.query + this.id)
-            .subscribe(
-            (res) => { this.movie = res.json(); console.log(res.json()) },
-            (err) => { }
+    //gotoMovie() {
+    //    this.http.get("/api/Search/ById" + this.query + this.id)
+    //        .subscribe(
+    //        (res) => { this.movie = res.json(); console.log(res.json()) },
+    //        (err) => { }
 
-            )
+    //        )
        
-    }
+    //}
     blurContSwitch() {
         this.userToEdit = new AppUser();
         

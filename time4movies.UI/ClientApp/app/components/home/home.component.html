@@ -1,96 +1,37 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-    <nav class="collapse navbar-collapse navbar-ex1-collapse">
+<div class="sidebar col-md-12">
+    <img src="../../../img/logo/darkFont.png" style=" width:220px;height:70px" />
+    <input class="col-md-12" type="submit" value="Watched"><br /><br />
+    <br />
+    <br />
+    <input class="col-md-12" type="submit" value="Trending"><br>
+    <br>
+    <br />
+    <input class="col-md-12" type="submit" value="Profile" />
 
-        <div class="nav navbar-nav side-nav">
-            <img src="../../../img/logo/darkFont.png" width="400px" height="100px" />"
-            <div class="sideInputs">
-                <input class="col-md-12" type="submit"  name="profile"  value="Profile"><br>
-                <br>
-                <br />
-                <input class="col-md-12" type="submit"  name="trending"  value="Trending"><br>
-                <br>
-                <br />
-                <input class="col-md-12" type="submit"  name="watched" value="Watched" />
+    <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
+        <a>{{quote.quote}}</a>
+        <label>[{{quote.author}}] </label>
+    </div>
+</div>
 
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />  <br />
-
-                <div *ngIf="quote" class="col-md-8 col-md-offset-2  " style="color:white">
-                    <h2>{{quote.quote}}</h2>
-                    <label>[{{quote.author}}] </label>
+<div class="col-md-10 col-md-push-2">
+    <div>
+        <input type="text" (click)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
+    </div>
+    <!--<button type="submit" (click)="searchMovies()" class="searchButton">
+        <i class="fa fa-search"></i>
+    </button>-->
+    <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
+    <input type="submit" value="search" " />-->
+    <div class="container" *ngIf="movie">
+        <a href="" class="item tilt-poster" *ngFor="let f of movie.results">
+            <div class="poster">
+                <div>
+                    <img class="" src="{{f.fullPath}}" />
+                    <h4 class="voteavg">{{f.vote_average}}</h4>
                 </div>
             </div>
-
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <div id="imaginary_container">
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Search for a movie...">
-                        <span class="input-group-addon">
-                            <button (click)="searchMovies()" type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <p>{{f.title}}</p>
+        </a>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <!--<div class="col-md-12" *ngIf="movie">
-        <div *ngFor="let d of movie.results">
-            <table >
-                <tr>
-                    <td>
-                        <a class="col-md-2 pull-left"><img src="{{d.fullPath}}"></a>
-                        <h1 class="col-md-4">
-                            Title: {{d.title}}
-                        </h1>
-                        <h2 class="col-md-10 col-lg-offset-2 pull-right">
-                            Overview: {{d.overview}}
-                        </h2>
-                        <a class="col-md-3 col-md-offset-2 pull-right">
-                            Release Date: {{d.release_date}}
-                        </a>
-                        <a class="col-md-3 col-md-offset-8 pull-right">
-                            Vote Average: {{d.vote_average}}
-                        </a>
-                        <a class="col-md-3 col-md-offset-8 pull-right">
-                            Vote Count: {{d.vote_count}}
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>-->
-    <!--<div class="col-md-12">
-        <input class="col-md-2 col-md-offset-2" type="text" placeholder="search" />
-        <div class="container" *ngIf="movie">
-            <a href="" (click)="gotoMovie()" class="item tilt-poster" *ngFor="let f of movie.results">
-                <div class="poster">
-                    <div>
-                        <img class="" src="{{f.fullPath}}" />
-                        <h4 class="voteavg">{{f.vote_average}}</h4>
-                    </div>
-                </div>
-                <p>{{f.title}}</p>
-            </a>
-        </div>
-    </div>-->
-      
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-    </div>
+</div>

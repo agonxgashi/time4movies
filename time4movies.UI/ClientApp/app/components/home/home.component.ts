@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MovieModel } from './../../models/Movie/MovieModel';
 import { Http, RequestOptions, Headers } from '@angular/http';
+import { Quote } from './../../models/Movie/Quote'
 import { JsonPipe } from '@angular/common';
 import {
     Directive, forwardRef,
-    Attribute, OnChanges, SimpleChanges, Input
+    Attribute, OnChanges, SimpleChanges, Input, OnInit
 } from '@angular/core';
 import {
     NG_VALIDATORS, Validator,
@@ -15,15 +16,21 @@ import {
     templateUrl: './home.component.html',
     styles: [require('./home.css')]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
     movie: MovieModel[];
     queryUrl: string = '?name=';
     name: string;
+    quote: Quote;
     
     constructor(private http: Http) {
 
     }
-    
+
+
+    ngOnInit() {
+        this.getTrendinMovies();
+        this.getRandomQuote();
+    }
     searchMovies() {
         this.http.get("/api/Search/ByName" + this.queryUrl + this.name )    
             .subscribe(
@@ -33,6 +40,15 @@ export class HomeComponent {
         )
         
     }
+    getRandomQuote() {
+        this.http.get("/api/Quote/RandomQuote")
+            .subscribe(
+            (res) => { this.quote = res.json(); console.log(res.json()); console.log(this.quote) },
+            (err) => { }
+            )
+
+    }
+
     getTrendinMovies() {
         this.http.get("/api/Search/Trending")
             .subscribe(

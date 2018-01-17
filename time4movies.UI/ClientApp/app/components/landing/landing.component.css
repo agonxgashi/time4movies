@@ -1,105 +1,5 @@
 
 
-/*.landingContainer {
-    background: url('./../../../img/fantastic_four_2015-widePS.png') fixed no-repeat;
-    background-size: cover;
-    height: 99.85vh;
-    padding: 20px;
-  
-}
-.dark-modal {
-    background-color: #0F212D;
-    padding-top:20px;
-    padding-bottom:40px;
-}*/
-/*.imgPortal{*/
-/*    height: 5vh;*/
-/**/
-/*}*/
-/**/
-/*.imgPortal > a {*/
-/*    margin-right: 10px;*/
-/*    padding: 5px;*/
-/*    width: 15px;*/
-/*}*/
-
-
-
-
- 
-
-
-
-  /*form img{
-    border-radius: 100%;
-    width: 100%;
-    
-  }
-  form{
-    left: 50%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    transform: translate(-50%,-50%);
-  }
-
-input[type="text"], input[type="password"], input[type="email"] {
-    background-color: rgba(1,17,16, 0.55);
-    border-radius: 10px;
-    border: 0;
-    color: #00FF89;
-    font-size: 16px;
-    outline: 0;
-    padding: 8px 8px 8px 8px;
-    text-align: center;
-    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
-}
-
-
-input[type="submit"] {
-    background: #00FF89;
-    border-radius: 10px;
-    border: 2px solid #33ee77;
-    color: white;
-    font-weight: bold;
-    height: 40px;
-    outline: 0 !important;
-    display:inline-block;
-    margin-right: -50%;
-    /*transition: all 300ms ease-in-out;*/
-   
-
-    /*input[type="submit"]:hover {
-        background: #0F212D;
-        color: #33ee77;
-        
-    }
-
-    input[type="submit"]:disabled {
-        background: #0F212D;
-        color: #AE171F;
-        border: 2px solid #AE171F;
-    }
-
-.blurCont > form > span {
-    color: rgba(255,255,255, 0.8);
-    cursor: pointer;
-}/**/
-
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-
-@media(min-width:768px) {
-    body {
-        margin-top: 50px;
-    }
-    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
-}
-
-#wrapper {
-    padding-left: 0;
-}
 
 input[type="submit"] {
     background: #00FF89;
@@ -115,18 +15,17 @@ input[type="submit"] {
     align-self: stretch;
 }
 
-.side-nav input[type="submit"]:hover {
+. input[type="submit"]:hover {
     background: #0F212D;
     color: #33ee77;
 }
 
-.side-nav input[type="submit"]:disabled {
+.input[type="submit"]:disabled {
     background: #0F212D;
     color: #AE171F;
     border: 2px solid #AE171F;
 }
-
-.side-nav input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"] {
     background-color: rgba(1,17,16, 0.55);
     border-radius: 10px;
     border: 0;
@@ -141,54 +40,31 @@ input[type="submit"] {
     box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
 
-#page-wrapper {
-    width: 100%;
-    padding: 0;
-    background-color: #fff;
+.sidebar {
+    background-color: #0F212D;
+    position: fixed;
+    width: 20%;
+    height: 100%;
 }
 
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 225px;
-    }
-
-    #page-wrapper {
-        padding: 22px 10px;
-    }
+.searchTerm {
+    width: 35%;
+    border: 3px solid #00B4CC;
+    height: 35px;
+    border-radius: 5px;
+    color: #9DBFAF;
+    margin: 0 auto;
+    max-width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 6em;
+    position: relative;
 }
 
-/* Top Navigation */
-
-
-/* Side Navigation */
-
-@media(min-width:768px) {
-    .side-nav {
-        position: fixed;
-        width: 400px;
-        margin-left: -250px;
-        border: none;
-        border-radius: 0;
-        border-top: 1px rgba(0,0,0,.5) solid;
-        overflow-y: auto;
-        background-color: #0F212D;
-        /*background-color: #5A6B7D;*/
-        bottom: 0;
-        overflow-x: hidden;
-        padding-bottom: 40px;
-        height: 100%;
-    }
-
-    .sideInputs {
-        width: 400px;
-        height: 290px;
-        position: absolute;
-        top: 30%;
-        left: 38%;
-        margin-top: -147px;
-        margin-left: -144px;
-    }
-}
+    .searchTerm:focus {
+        color: #00B4CC;
+    }   
 .movieGrid img {
     padding: 4px 6px;
     background: rgba(51,51,51,.95);
