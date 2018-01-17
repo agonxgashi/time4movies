@@ -110,7 +110,7 @@ export class LandingPageComponent implements OnInit{
         //    (err) => { }
              
         //)
-        this.router.navigate(['/movie'/*, this.id]*/);
+        this.router.navigate(['/movie'/*, this.id]*/]);
     }
     blurContSwitch() {
         this.userToEdit = new AppUser();

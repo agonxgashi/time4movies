@@ -4,7 +4,7 @@ import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute} from "@angular/router";
 import { MovieModel } from './../../models/Movie/MovieModel';
 import {
     Directive, forwardRef,
@@ -25,14 +25,22 @@ import {
     styles: [require('./movie.component.css')]
 })
 export class MovieComponent implements OnInit {
-
-
-
-
-
+    private movId: number;
+    quote: Quote;
+    constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) { }
 
     ngOnInit(): void {
-        throw new Error("Method not implemented.");
+        this.getRandomQuote();
+        this.route.params.subscribe(params => {
+            this.movId = params['id'];
+        });
     }
+    getRandomQuote() {
+        this.http.get("/api/Quote/RandomQuote")
+            .subscribe(
+            (res) => { this.quote = res.json() },
+            (err) => { }
+            )
 
+    }
 }

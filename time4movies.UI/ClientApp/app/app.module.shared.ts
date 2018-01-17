@@ -72,7 +72,7 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                             { path: 'counter', component: CounterComponent },
                             { path: 'fetch-data', component: FetchDataComponent },
                             { path: 'landing', component: LandingPageComponent },
-                            { path: 'movie', component: MovieComponent },
+                            { path: 'movie/:id', component: MovieComponent },
                             { path: '**', redirectTo: 'home' }
                         ])
                     ],

@@ -1,1 +1,29 @@
-﻿<h1>driart</h1>
+﻿<div class="sidebar col-md-12">
+    <img src="../../../img/logo/darkFont.png" style=" width:220px;height:70px" />
+    <input class="col-md-12" type="submit" value="Watched"><br /><br />
+    <br />
+    <br />
+    <input class="col-md-12" type="submit" value="Trending"><br>
+    <br>
+    <br />
+    <input class="col-md-12" type="submit" value="Profile" />
+
+    <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
+        <a>{{quote.quote}}</a>
+        <label>[{{quote.author}}] </label>
+    </div>
+</div>
+<div class="col-md-10">
+    <div class="container">
+        <a href="" class="item tilt-poster">
+            <div class="poster">
+                <div>
+                    <img href="" src="" />
+                    <h4>Id e filmit {{movId}}</h4>
+                </div>
+            </div>
+            <p>Title</p>
+        </a>
+
+    </div>
+</div>
