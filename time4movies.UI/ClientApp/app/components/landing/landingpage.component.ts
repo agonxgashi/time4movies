@@ -28,7 +28,9 @@ export class LandingPageComponent implements OnInit{
     quote: Quote;
     showLogIn: boolean = true;
     movie: MovieModel[];
-    query : string = "?name="
+    query: string = "?name="
+    queryId: string = "?id="
+    id: string;
     name: string;
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
@@ -77,7 +79,7 @@ export class LandingPageComponent implements OnInit{
     searchMovies() {
         this.http.get("/api/Search/ByName" + this.query + this.name)
             .subscribe(
-            (res) => { this.movie = res.json(); console.log(res.json()) },
+            (res) => { this.movie = res.json()},
             (err) => { }
 
             )
@@ -86,7 +88,7 @@ export class LandingPageComponent implements OnInit{
     getRandomQuote() {
         this.http.get("/api/Quote/RandomQuote")
             .subscribe(
-            (res) => { this.quote = res.json(); console.log(res.json()); console.log(this.quote) },
+            (res) => { this.quote = res.json()},
                 (err) => { }
         )
 
@@ -95,21 +97,21 @@ export class LandingPageComponent implements OnInit{
     getTrendinMovies() {
         this.http.get("/api/Search/Trending")
             .subscribe(
-            (res) => { this.movie = res.json(); console.log(res.json()); console.log(this.movie) },
+            (res) => { this.movie = res.json() },
             (err) => { }
 
             )
 
     }
-    //gotoMovie() {
-    //    this.http.get("/api/Search/ById" + this.query + this.id)
-    //        .subscribe(
-    //        (res) => { this.movie = res.json(); console.log(res.json()) },
-    //        (err) => { }
-
-    //        )
-       
-    //}
+    gotoMovie() {
+        //this.http.get("/api/Search/ById" + this.queryId + this.id)
+        //    .subscribe(
+        //    (res) => { this.movie = res.json(); console.log(res.json()) },
+        //    (err) => { }
+             
+        //)
+        this.router.navigate(['/movie'/*, this.id]*/);
+    }
     blurContSwitch() {
         this.userToEdit = new AppUser();
         

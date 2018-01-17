@@ -4,7 +4,7 @@
     <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br /><br />
     <br />  
     <br />
-    <input class="col-md-12" type="text" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br>
+    <input class="col-md-12" type="password" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@password" required><br>
     <br>
     <br />
     <input class="col-md-12" type="submit" (click)="login()" value="Sing In" />
@@ -24,15 +24,17 @@
     <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
     <input type="submit" value="search" " />-->
     <div class="container" *ngIf="movie">
-        <a href="" class="item tilt-poster" *ngFor="let f of movie.results">
+        <a href="" class="item tilt-poster" *ngFor="let f of movie.results" >
             <div class="poster">
-                <div>
-                    <img class="" src="{{f.fullPath}}" />
+                <div> 
+                    <img src="{{f.fullPath}}"/>
+                 
                     <h4 class="voteavg">{{f.vote_average}}</h4>
                 </div>
             </div>
             <p>{{f.title}}</p>
         </a>
+        
     </div>
 </div>
     

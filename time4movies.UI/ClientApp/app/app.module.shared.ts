@@ -8,7 +8,7 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-
+import { MovieComponent } from './components/movie/movie.component';
 import { LogInSrv } from './services/logInService'
 import { httpFactory } from './services/AuthServices/HttpFactory'
 
@@ -59,7 +59,8 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                 CounterComponent,
                 FetchDataComponent,
                 HomeComponent,
-                LandingPageComponent
+                LandingPageComponent,
+                MovieComponent
             ],
             imports: [
                         CommonModule,
@@ -71,6 +72,7 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                             { path: 'counter', component: CounterComponent },
                             { path: 'fetch-data', component: FetchDataComponent },
                             { path: 'landing', component: LandingPageComponent },
+                            { path: 'movie', component: MovieComponent },
                             { path: '**', redirectTo: 'home' }
                         ])
                     ],
