@@ -1,29 +1,8 @@
-<!--<div class="sidebar col-md-12">
-    <img src="../../../img/logo/darkFont.png" style=" width:220px;height:70px" />
-    <input class="col-md-12" type="submit" value="Watched"><br /><br />
-    <br />
-    <br />
-    <input class="col-md-12" type="submit" value="Trending"><br>
-    <br>
-    <br />
-    <input class="col-md-12" type="submit" value="Profile" />
-
-    <footer style="vertical-align:bottom">
-        <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
-            <a>{{quote.quote}}</a>
-            <label>[{{quote.author}}] </label>
-        </div>
-    </footer>
-</div>-->
 <div class="col-md-12">
+    <br />
     <div >
         <input type="text" (keyup.enter)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
     </div>
-    <!--<button type="submit" (click)="searchMovies()" class="searchButton">
-        <i class="fa fa-search"></i>
-    </button>-->
-    <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
-    <input type="submit" value="search" " />-->
     <div class="container" *ngIf="movie">
         <a style="cursor:pointer" class="item tilt-poster" *ngFor="let f of movie.results">
             <div class="poster">
