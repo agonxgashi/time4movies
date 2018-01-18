@@ -25,7 +25,7 @@
     <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
     <input type="submit" value="search" " />-->
     <div class="container" *ngIf="movie">
-        <a  class="item tilt-poster" *ngFor="let f of movie.results">
+        <a style="cursor:pointer" class="item tilt-poster" *ngFor="let f of movie.results">
             <div class="poster">
                 <div>
                     <img (click)="gotoMovie(f.id)" src="{{f.fullPath}}" />

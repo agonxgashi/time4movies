@@ -11,7 +11,7 @@
         <input class="col-md-12" type="submit" (click)="login()" value="Sign In" />
         <br />
         <br />
-        <a style="color:white" class="pull-right" (click)="blurContSwitch()">Sign Up? It's free</a>
+        <a style="color:white;cursor:pointer" class="pull-right" (click)="blurContSwitch()">Sign Up? It's free</a>
     </div>
     <br />
     <div class="switchDiv" *ngIf="!showLogIn">
@@ -31,7 +31,7 @@
         <br>
         <br />
         <input class="col-md-12" type="submit" (click)="signUp()" value="Sign Up" />
-        <a style="color:white" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
+        <a style="color:white;cursor:pointer" class="pull-right"  (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
     </div>
 
     <footer style="vertical-align:bottom">
@@ -57,7 +57,7 @@
         <a class="item tilt-poster" *ngFor="let f of movie.results" > 
             <div class="poster">
                 <div> 
-                    <img (click)="gotoMovie(f.id)" src="{{f.fullPath }}"/>
+                    <img style="cursor:pointer" (click)="gotoMovie(f.id)" src="{{f.fullPath }}"/>
                 </div>
             </div>
             <p>{{f.title}}</p>
