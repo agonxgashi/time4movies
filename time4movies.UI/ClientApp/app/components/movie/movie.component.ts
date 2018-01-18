@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { Router, ActivatedRoute} from "@angular/router";
 import { MovieModel } from './../../models/Movie/MovieModel';
+import { Watched } from './../../models/Logic/Watched';
 import {
     Directive, forwardRef,
     Attribute, OnChanges, SimpleChanges, Input, ViewChild
@@ -56,8 +57,8 @@ export class MovieComponent implements OnInit {
 
     }
 
-    watched(movie:MovieModel) {
-        this.http.get("api/Logic/InsertWatched", JSON.stringify(movie))
+    watched(w: Watched) {
+        this.http.get("api/Logic/InsertWatched", JSON.stringify(w.movieId))
             .subscribe(
             (res) => { this.movie = res.json() },
             (err) => { }

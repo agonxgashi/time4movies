@@ -10,6 +10,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { LogInSrv } from './services/logInService'
+import { SideBarComponent } from './components/sidebar/sidebar.component';
 import { httpFactory } from './services/AuthServices/HttpFactory'
 
 // @NgModule({
@@ -60,7 +61,9 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                 FetchDataComponent,
                 HomeComponent,
                 LandingPageComponent,
-                MovieComponent
+                MovieComponent,
+                SideBarComponent
+
             ],
             imports: [
                         CommonModule,
@@ -73,6 +76,7 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                             { path: 'fetch-data', component: FetchDataComponent },
                             { path: 'landing', component: LandingPageComponent },
                             { path: 'movie/:id', component: MovieComponent },
+                            { path: 'sidebar', component: SideBarComponent },
                             { path: '**', redirectTo: 'home' }
                         ])
                     ],

@@ -42,40 +42,40 @@ export class LandingPageComponent implements OnInit{
 
     ngOnInit(){
         this.quote = new Quote();
-        this.getRandomQuote();
+        //this.getRandomQuote();
         this.getTrendinMovies();
     }
 
-    login() {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        this.http.post("/api/AppUser/LogInUser", JSON.stringify(this.userToEdit), options)
-            .subscribe(
-            (res) => {
-                console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-                console.log(res.text())
-                this.ls.setCookieValue(res.text())
-                {
-                    this.router.navigate(['/home']);
-                }
-                console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-            },
-            (err) => { }
-        )
-        this.router.navigate(['/home']);
+    //login() {
+    //    let headers = new Headers({ 'Content-Type': 'application/json' });
+    //    let options = new RequestOptions({ headers: headers });
+    //    this.http.post("/api/AppUser/LogInUser", JSON.stringify(this.userToEdit), options)
+    //        .subscribe(
+    //        (res) => {
+    //            console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    //            console.log(res.text())
+    //            this.ls.setCookieValue(res.text())
+    //            {
+    //                this.router.navigate(['/home']);
+    //            }
+    //            console.error('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    //        },
+    //        (err) => { }
+    //    )
+    //    this.router.navigate(['/home']);
     
-    }
+    //}
 
-    signUp() {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        this.http.post("/api/AppUser/CreateUser", JSON.stringify(this.userToEdit), options)
-            .subscribe(
-                (res) => { },
-                (err) => { }
-        )
+    //signUp() {
+    //    let headers = new Headers({ 'Content-Type': 'application/json' });
+    //    let options = new RequestOptions({ headers: headers });
+    //    this.http.post("/api/AppUser/CreateUser", JSON.stringify(this.userToEdit), options)
+    //        .subscribe(
+    //            (res) => { },
+    //            (err) => { }
+    //    )
 
-    }
+    //}
     searchMovies() {
         this.http.get("/api/Search/ByName" + this.query + this.name)
             .subscribe(
@@ -85,14 +85,14 @@ export class LandingPageComponent implements OnInit{
             )
 
     }
-    getRandomQuote() {
-        this.http.get("/api/Quote/RandomQuote")
-            .subscribe(
-            (res) => { this.quote = res.json()},
-                (err) => { }
-        )
+    //getRandomQuote() {
+    //    this.http.get("/api/Quote/RandomQuote")
+    //        .subscribe(
+    //        (res) => { this.quote = res.json()},
+    //            (err) => { }
+    //    )
 
-    }
+    //}
 
     getTrendinMovies() {
         this.http.get("/api/Search/Trending")
@@ -113,11 +113,11 @@ export class LandingPageComponent implements OnInit{
         console.log(movId)
         this.router.navigate(['/movie/' + movId]);
     }
-    blurContSwitch() {
-        this.userToEdit = new AppUser();
+    //blurContSwitch() {
+    //    this.userToEdit = new AppUser();
         
-        this.showLogIn  = !this.showLogIn;
-    }
+    //    this.showLogIn  = !this.showLogIn;
+    //}
 
     clearObject() {
         this.userToEdit = new AppUser();

@@ -1,7 +1,6 @@
-
-<!--<div class="sidebar col-md-12">
-    <img src="../../../img/logo/darkFont.png" width="220px" height="70px"  />
-    <div class="switchDiv" *ngIf="showLogIn">
+﻿<div class="sidebar col-md-12">
+    <img src="../../../img/logo/darkFont.png" width="220px" height="70px" />
+    <div class="switchDiv" *ngIf="showLogIn && showHome">
         <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.username" placeholder="@username" required><br />
         <br />
         <br />
@@ -14,7 +13,7 @@
         <a style="color:white;cursor:pointer" class="pull-right" (click)="blurContSwitch()">Sign Up? It's free</a>
     </div>
     <br />
-    <div class="switchDiv" *ngIf="!showLogIn">
+    <div class="switchDiv" *ngIf="!showLogIn ">
         <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br />
         <br />
         <br />
@@ -31,39 +30,23 @@
         <br>
         <br />
         <input class="col-md-12" type="submit" (click)="signUp()" value="Sign Up" />
-        <a style="color:white;cursor:pointer" class="pull-right"  (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
+        <a style="color:white;cursor:pointer" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
     </div>
-
+    <div class="switchDiv" *ngIf="!showHome && !showLogin">
+      
+            <input class="col-md-12" type="submit" value="Watched"><br />
+            <br />
+            <br />
+            <input class="col-md-12" type="submit" value="Trending"><br>
+            <br>
+            <br />
+            <input class="col-md-12" type="submit" value="Profile" />
+       
+    </div>
     <footer style="vertical-align:bottom">
         <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
             <a>{{quote.quote}}</a>
             <label>[{{quote.author}}] </label>
         </div>
     </footer>
-   
-</div>-->
-
-
-<div class="col-md-10 col-md-push-2">
-    <div>
-        <input type="text" (click)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
-    </div>
-    <!--<button type="submit" (click)="searchMovies()" class="searchButton">
-        <i class="fa fa-search"></i>
-    </button>-->
-    <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
-    <input type="submit" value="search" " />-->
-    <div class="container" *ngIf="movie">
-        <a class="item tilt-poster" *ngFor="let f of movie.results" > 
-            <div class="poster">
-                <div> 
-                    <img style="cursor:pointer" (click)="gotoMovie(f.id)" src="{{f.fullPath }}"/>
-                </div>
-            </div>
-            <p>{{f.title}}</p>
-        </a>
-        
-    </div>
 </div>
-    
-  
