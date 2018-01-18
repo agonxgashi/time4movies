@@ -1,6 +1,3 @@
-
-
-
 input[type="submit"] {
     background: #00FF89;
     border-radius: 10px;
@@ -15,7 +12,7 @@ input[type="submit"] {
     align-self: stretch;
 }
 
-. input[type="submit"]:hover {
+.input[type="submit"]:hover {
     background: #0F212D;
     color: #33ee77;
 }
@@ -40,12 +37,6 @@ input[type="text"], input[type="password"], input[type="email"] {
     box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
 
-.sidebar {
-    background-color: #0F212D;
-    position: fixed;
-    width: 20%;
-    height: 100%;
-}
 
 .searchTerm {
     width: 35%;
@@ -65,30 +56,8 @@ input[type="text"], input[type="password"], input[type="email"] {
     .searchTerm:focus {
         color: #00B4CC;
     }
-.movieGrid img {
-    padding: 4px 6px;
-    background-color: #F4F4FF;
-    color: #ebeced;
-    font-weight: 500;
-    font-size: 12px;
-    border-radius: 8px;
-}
-.vote {
-    background-color:darkgoldenrod;
-    color:white;
-    border-radius:5px;
-    text-align:center;
-    width:12%;
-}
 
 
-
-
-h1 {
-    font-size: 3vw;
-    text-align: center;
-    padding: 2em;
-}
 
 a {
     color: inherit;
@@ -125,32 +94,8 @@ a {
             font-size: .9em;
         }
 
-.mtt {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #999;
-    text-decoration: none;
-}
-
-    .mtt span {
-        color: #e74c3c;
-    }
-
-    .mtt:hover {
-        color: #666;
-    }
-
-        .mtt:hover span {
-            color: #c0392b;
-        }
 
         .container img{
            width:190px;
            border-radius:5px;
         }
-.voteavg{
-    text-align:right;
-   
-}

@@ -44,9 +44,9 @@
 </div>-->
 
 
-<div class="col-md-10 col-md-push-2">
+<div class="col-md-12">
     <div>
-        <input type="text" (click)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
+        <input type="text" (keyup.enter)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
     </div>
     <!--<button type="submit" (click)="searchMovies()" class="searchButton">
         <i class="fa fa-search"></i>

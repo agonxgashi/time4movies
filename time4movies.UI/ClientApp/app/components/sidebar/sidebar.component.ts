@@ -76,6 +76,10 @@ export class SideBarComponent implements OnInit {
 
     }
 
+    goHome() {
+        this.router.navigate(['/home']);
+
+    }
 
     ngOnInit(): void {
         this.getRandomQuote();
