@@ -1,49 +1,11 @@
 ﻿
-input[type="submit"] {
-    background: #0F212D;
-    border: 2px solid #33ee77;
-    color: white;
-    font-weight: bold;
-    height: 40px;
-    position: relative;
-    transition: all 300ms ease-in-out;
-}
 
-input[type="submit"]:hover {
-    background: #0F212D;
-    color: #33ee77;
-}
-input[type="submit"]:active {
-    background: #0F212D;
-    color: #33ee77;
-}
- input[type="submit"]:disabled {
-    background: #0F212D;
-    color: #AE171F;
-    border: 2px solid #AE171F;
-}
-
-input[type="text"], input[type="password"], input[type="email"] {
-    background-color: rgba(1,17,16, 0.55);
-    border-radius: 10px;
-    border: 0;
-    align-items: center;
-    color: #00FF89;
-    font-size: 16px;
-    outline: 0;
-    padding: 8px 8px 8px 8px;
-    text-align: center;
-    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+.homeContainer {
+    padding-top: 25px;
 }
 
 
-a {
-    color: inherit;
-}
-
-.container {
+.moviesCont {
     margin: 0 auto;
     max-width: 1024px;
     display: flex;
@@ -52,53 +14,44 @@ a {
     padding-bottom: 6em;
     position: relative;
 }
-
-    .container .item {
-        margin: 2em;
-        text-align: center;
-      
-    }
-
-        .container .item .poster {
-            width: 190px;
-            height: 280px;
-           
-            background-size: cover;
-            margin-bottom: .5em;
-            box-shadow: 0 10px 17px rgba(0, 0, 0, 0.15);
-            border-radius: 5px;
-        }
-
-        .container .item p {
-            width: 185px;
-            font-size: .9em;
-        }
-
 
 
 
 .container img {
     width: 190px;
     border-radius: 5px;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }
 
-
-.searchTerm {
-    width: 35%;
-    border: 3px solid #00B4CC;
-    height: 35px;
-    border-radius: 5px;
-    color: #9DBFAF;
-    margin: 0 auto;
-    max-width: 1024px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 6em;
-    position: relative;
+.moviesCont {
+    padding-top: 30px !important;
 }
 
-    .searchTerm:focus {
-        color: #00B4CC;
-    }
+.movieItem {
+    transition: all 200ms;
+}
 
+.movieItem:hover { 
+    -webkit-box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.thumbnail {
+    padding: 0 !important;
+}
+
+.caption {
+    text-decoration: none !important;
+    text-align: center;
+}
+
+.searchMovInp {
+    background-color: #EFF4E4 !important;
+    box-shadow: none !important;
+    border: none !important;
+    height: auto;
+    padding: 10px 15px;
+}

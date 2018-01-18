@@ -3,8 +3,8 @@ li .glyphicon {
 }
 
 
-.navbar-inverse{
-    background-color: #011110 !important;
+.navbar-inverse {
+    background: -moz-linear-gradient(top, rgba(3,6,8,1) 0%, rgba(15,33,45,1) 100%);
 }
 
 /* Highlighting rules for nav menu items */
@@ -13,6 +13,14 @@ li.link-active a:hover,
 li.link-active a:focus {
     /*background-color: #4189C7;*/
     color: #33ee77;
+    background-color: #0f212d;
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    -webkit-box-shadow: 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -48,10 +56,10 @@ li.link-active a:focus {
     .navbar li {
         float: none;
         font-size: 15px;
-        margin: 6px;
+        /*margin: 6px;*/
     }
     .navbar li a {
-        padding: 10px 16px;
+        /*padding: 10px 16px;*/
         border-radius: 4px;
     }
     .navbar a {
@@ -61,4 +69,70 @@ li.link-active a:focus {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+}
+
+
+
+
+.sidebarBtn {
+    background: #00FF89;
+    border-radius: 0.3em;
+    padding: 0.5em 0.15em;
+    border: 1px solid #33ee77;
+    color: white;
+    outline: 0 !important;
+    display: inline-block;
+    transition: all 200ms;
+    align-self: stretch;
+}
+
+    .sidebarBtn:hover {
+        background: transparent;
+        color: #33ee77;
+    }
+
+    .logOutBtn {
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+        border-left: none !important;
+    }
+
+    .sidebarBtn:disabled {
+        background: #0F212D;
+        color: #AE171F;
+        border: 2px solid #AE171F;
+    }
+
+.sidebarInput {
+    padding: 0.5em 0.15em;
+    border: none;
+    border-radius: 0.3em;
+    /*font-size: 1.5em;*/
+    text-align: center;
+    background-color: #EFF4E4;
+    /*-webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);*/
+}
+
+.sidebar {
+    background-color: #0F212D;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+}
+
+.switchDiv {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.menu-options {
+    margin-right: 3vw;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    max-width: 100%;
 }

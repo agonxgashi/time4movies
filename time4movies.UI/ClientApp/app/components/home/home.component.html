@@ -1,17 +1,37 @@
-<div class="col-md-12">
-    <br />
-    <div >
-        <input type="text" (keyup.enter)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
+
+<div class="col-xs-12 homeContainer">
+    <div class="col-md-offset-2 col-md-8" >
+        <input type="text" (keyup.enter)="searchMovies()" class="form-control searchMovInp" [(ngModel)]="name" placeholder="What are you looking for?">
     </div>
-    <div class="container" *ngIf="movie">
-        <a style="cursor:pointer" class="item tilt-poster" *ngFor="let f of movie.results">
+    <div style="clear: both;"></div>
+    <!--<div class="container" *ngIf="movie">-->
+        <!--<a style="cursor:pointer" class="item tilt-poster" *ngFor="let f of movie.results">
             <div class="poster">
+                <div class="item">
+                    <img (click)="gotoMovie(f.id)" src="{{f.fullPath}}">
+  
+                    <div class="item-overlay top"></div>
+                </div>
+
                 <div>
-                    <img (click)="gotoMovie(f.id)" src="{{f.fullPath}}" />
-                    
+                    <img />
+
                 </div>
             </div>
             <p>{{f.title}}</p>
-        </a>
+        </a>-->
+        
+        <div class="moviesCont" *ngIf="movie">
+            <div class="col-lg-3 col-md-4 col-xs-12" *ngFor="let f of movie.results">
+                <div class="thumbnail movieItem" (click)="gotoMovie(f.id)">
+                    <a>
+                        <img src="{{f.fullPath}}" alt="Lights" style="width:100%">
+                        <div class="caption">
+                            <p>{{f.title}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+<!--</div>-->
