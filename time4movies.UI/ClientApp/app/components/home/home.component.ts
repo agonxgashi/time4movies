@@ -3,6 +3,7 @@ import { MovieModel } from './../../models/Movie/MovieModel';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Quote } from './../../models/Movie/Quote'
 import { JsonPipe } from '@angular/common';
+import { Router } from "@angular/router";
 import {
     Directive, forwardRef,
     Attribute, OnChanges, SimpleChanges, Input, OnInit
@@ -22,8 +23,8 @@ export class HomeComponent implements OnInit {
     name: string;
     quote: Quote;
     
-    constructor(private http: Http) {
-
+    constructor(private http: Http, private router: Router) {
+        
     }
 
 
@@ -57,5 +58,9 @@ export class HomeComponent implements OnInit {
 
             )
 
+    }
+    gotoMovie(movId: number) {
+        console.log(movId)
+        this.router.navigate(['/movie/' + movId]);
     }
 }

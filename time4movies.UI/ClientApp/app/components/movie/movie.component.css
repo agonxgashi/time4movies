@@ -167,8 +167,8 @@ a {
     }
 
         .container .item .poster {
-            width: 500px;
-            height: 800px;
+            width: 300px;
+            height: 500px;
             background-position: center;
             background-size: cover;
             margin-bottom: .5em;
@@ -229,3 +229,24 @@ a {
     .searchTerm:focus {
         color: #00B4CC;
     }
+.movieDetails img {
+    border-radius:15px;
+
+    
+    
+}
+
+.movieDetails {
+    margin-left:22%;
+}
+
+.info {
+    font-size: 25px;
+    vertical-align: text-top;
+}
+
+label{
+    font-size:25px;
+    text-align:left;
+}
+

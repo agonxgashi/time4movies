@@ -5,7 +5,7 @@ import { Quote } from './../../models/Movie/Quote'
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { Router } from "@angular/router";
-import { MovieModel } from './../../models/Movie/MovieModel';
+import { MovieModel } from './../../models/Movie/MovieModel';  //bir 1 
 import { Directive, forwardRef,
     Attribute, OnChanges, SimpleChanges, Input, ViewChild
     } from '@angular/core';
@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit{
     movie: MovieModel[];
     query: string = "?name="
     queryId: string = "?id="
-    id: string;
+    id: number;
     name: string;
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
@@ -103,14 +103,15 @@ export class LandingPageComponent implements OnInit{
             )
 
     }
-    gotoMovie() {
-        //this.http.get("/api/Search/ById" + this.queryId + this.id)
+    gotoMovie(movId: number) {
+        //this.http.get("/api/Search/ById?id=" + this.id)
         //    .subscribe(
         //    (res) => { this.movie = res.json(); console.log(res.json()) },
         //    (err) => { }
              
         //)
-        this.router.navigate(['/movie'/*, this.id]*/]);
+        console.log(movId)
+        this.router.navigate(['/movie/' + movId]);
     }
     blurContSwitch() {
         this.userToEdit = new AppUser();

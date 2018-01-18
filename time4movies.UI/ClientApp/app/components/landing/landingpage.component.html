@@ -1,19 +1,49 @@
 
 <div class="sidebar col-md-12">
     <img src="../../../img/logo/darkFont.png" width="220px" height="70px"  />
-    <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br /><br />
-    <br />  
-    <br />
-    <input class="col-md-12" type="password" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@password" required><br>
-    <br>
-    <br />
-    <input class="col-md-12" type="submit" (click)="login()" value="Sing In" />
-
-    <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
-        <a>{{quote.quote}}</a>
-        <label>[{{quote.author}}] </label>
+    <div class="switchDiv" *ngIf="showLogIn">
+        <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.username" placeholder="@username" required><br />
+        <br />
+        <br />
+        <input class="col-md-12" type="password" name="lastName" [(ngModel)]="userToEdit.lastName" placeholder="@password" required><br>
+        <br>
+        <br />
+        <input class="col-md-12" type="submit" (click)="login()" value="Sign In" />
+        <br />
+        <br />
+        <a style="color:white" class="pull-right" (click)="blurContSwitch()">Sign Up? It's free</a>
     </div>
+    <br />
+    <div class="switchDiv" *ngIf="!showLogIn">
+        <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.firstName" placeholder="@firstName" required><br />
+        <br />
+        <br />
+        <input class="col-md-12" type="text" name="firstName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br />
+        <br />
+        <br />
+        <input class="col-md-12" type="password" name="lastName" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+        <br>
+        <br />
+        <input class="col-md-12" type="text" name="lastName" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+        <br>
+        <br />
+        <input class="col-md-12" type="text" name="lastName" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
+        <br>
+        <br />
+        <input class="col-md-12" type="submit" (click)="signUp()" value="Sign Up" />
+        <a style="color:white" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
+    </div>
+
+    <footer style="vertical-align:bottom">
+        <div *ngIf="quote" class="col-md-12" style="color:white;margin-top:120%">
+            <a>{{quote.quote}}</a>
+            <label>[{{quote.author}}] </label>
+        </div>
+    </footer>
+   
 </div>
+
+
 <div class="col-md-10 col-md-push-2">
     <div>
         <input type="text" (click)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
@@ -24,12 +54,10 @@
     <!--<input class="col-md-2 col-md-offset-4" id="searchMovie" type="search" [(ngModel)]="name" placeholder="search" />
     <input type="submit" value="search" " />-->
     <div class="container" *ngIf="movie">
-        <a href="" class="item tilt-poster" *ngFor="let f of movie.results" >
+        <a class="item tilt-poster" *ngFor="let f of movie.results" > 
             <div class="poster">
                 <div> 
-                    <img href="/movie" src="{{f.fullPath}}"/>
-                 
-                    <h4 class="voteavg">{{f.vote_average}}</h4>
+                    <img (click)="gotoMovie(f.id)" src="{{f.fullPath }}"/>
                 </div>
             </div>
             <p>{{f.title}}</p>

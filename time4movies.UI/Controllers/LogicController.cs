@@ -21,7 +21,7 @@ namespace time4movies.UI.Controllers
         }
 
         [HttpGet("[action]")]
-        public bool RandomQuote(Watched w)
+        public bool InsertWatched(Watched w)
         {
             return _watched.InsertWatched(w); 
         }
