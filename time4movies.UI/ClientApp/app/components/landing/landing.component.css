@@ -64,10 +64,10 @@ input[type="text"], input[type="password"], input[type="email"] {
 
     .searchTerm:focus {
         color: #00B4CC;
-    }   
+    }
 .movieGrid img {
     padding: 4px 6px;
-    background: rgba(51,51,51,.95);
+    background-color: #F4F4FF;
     color: #ebeced;
     font-weight: 500;
     font-size: 12px;

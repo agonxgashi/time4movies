@@ -3,7 +3,7 @@
     <input class="col-md-12" type="submit" value="Watched"><br /><br />
     <br />
     <br />
-    <input class="col-md-12" type="submit" value="Trending"><br>
+    <input (click)="goToTrending()" class="col-md-12" type="submit" value="Trending"><br>
     <br>
     <br />
     <input class="col-md-12" type="submit" value="Profile" />
@@ -42,7 +42,8 @@
         <br />
         <label>IMDB : {{movie.vote_average}}</label>
         <br/><br/><br /><br />
-        <label  >Overview : <br />{{movie.overview}}</label>
+        <label>Overview : </label>
+        <label style="font-style: italic;"   > <br />{{movie.overview}} </label>
     </span>
    
     

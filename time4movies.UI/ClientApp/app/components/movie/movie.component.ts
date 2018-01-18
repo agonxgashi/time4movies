@@ -64,6 +64,10 @@ export class MovieComponent implements OnInit {
             )
     }
 
+    goToTrending() {
+        this.router.navigate(['/home']);
+    }
+
     //getMovieDetails() {
     //    this.http.get("/api/Search/ById?id=" + this.movId)
     //        .subscribe(
