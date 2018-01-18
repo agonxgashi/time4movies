@@ -12,42 +12,6 @@ import { MovieComponent } from './components/movie/movie.component';
 import { LogInSrv } from './services/logInService'
 import { SideBarComponent } from './components/sidebar/sidebar.component';
 import { httpFactory } from './services/AuthServices/HttpFactory'
-
-// @NgModule({
-//     declarations: [
-//         AppComponent,
-//         NavMenuComponent,
-//         CounterComponent,
-//         FetchDataComponent,
-//         HomeComponent,
-//         LandingPageComponent
-//     ],
-//     providers: [
-//         {
-//             provide: Http,
-//             useClass: httpFactory,
-//             deps: [XHRBackend, RequestOptions]
-//         },
-//         LogInSrv
-//     ],
-//     imports: [
-//         CommonModule,
-//         HttpModule,
-//         FormsModule,
-//         RouterModule.forRoot([
-//             { path: '', redirectTo: 'landing', pathMatch: 'full' },
-//             { path: 'home', component: HomeComponent },
-//             { path: 'counter', component: CounterComponent },
-//             { path: 'fetch-data', component: FetchDataComponent },
-//             { path: 'landing', component: LandingPageComponent },
-//             { path: '**', redirectTo: 'home' }
-//         ])
-//     ]
-// })
-// export class AppModuleShared {
-// }
-
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
@@ -70,13 +34,13 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                         HttpModule,
                         FormsModule,
                         RouterModule.forRoot([
-                            { path: '', redirectTo: 'landing', pathMatch: 'full' },
+                            { path: '', redirectTo: 'home', pathMatch: 'full' },
                             { path: 'home', component: HomeComponent },
                             { path: 'counter', component: CounterComponent },
                             { path: 'fetch-data', component: FetchDataComponent },
-                            { path: 'landing', component: LandingPageComponent },
+                            //{ path: 'landing', component: LandingPageComponent },
                             { path: 'movie/:id', component: MovieComponent },
-                            { path: 'sidebar', component: SideBarComponent },
+                            //{ path: 'sidebar', component: SideBarComponent },
                             { path: '**', redirectTo: 'home' }
                         ])
                     ],

@@ -38,7 +38,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 
-.searchTerm {
+/*.searchTerm {
     width: 35%;
     border: 3px solid #00B4CC;
     height: 35px;
@@ -55,7 +55,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 
     .searchTerm:focus {
         color: #00B4CC;
-    }
+    }*/
 
 
 
