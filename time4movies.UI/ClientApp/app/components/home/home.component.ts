@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.getTrendinMovies();
-        //this.getRandomQuote();
     }
     searchMovies() {
         this.http.get("/api/Search/ByName" + this.queryUrl + this.name )    
@@ -41,14 +40,6 @@ export class HomeComponent implements OnInit {
         )
         
     }
-    //getRandomQuote() {
-    //    this.http.get("/api/Quote/RandomQuote")
-    //        .subscribe(
-    //        (res) => { this.quote = res.json(); console.log(res.json()); console.log(this.quote) },
-    //        (err) => { }
-    //        )
-
-    //}
 
     getTrendinMovies() {
         this.http.get("/api/Search/Trending")
