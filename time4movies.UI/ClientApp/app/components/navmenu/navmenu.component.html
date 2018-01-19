@@ -38,16 +38,17 @@
                 <input class="col-xs-12 sidebarInput" type="text" name="firstName" [(ngModel)]="userToEdit.lastName" placeholder="@lastName" required><br />
                 <br />
                 <br />
-                <input class="col-xs-12 sidebarInput" type="password" name="lastName" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
+                <input class="col-xs-12 sidebarInput" type="password" name="password" [(ngModel)]="userToEdit.password" placeholder="@password" required><br>
                 <br>
                 <br />
-                <input class="col-xs-12 sidebarInput" type="text" name="lastName" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
+                <input class="col-xs-12 sidebarInput" type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
                 <br>
                 <br />
-                <input class="col-xs-12 sidebarInput" type="text" name="lastName" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
+                <input class="col-xs-12 sidebarInput" #name="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
                 <br>
                 <br />
                 <input class="col-xs-12 sidebarBtn" type="submit" (click)="signUp()" value="Sign Up" />
+                <span class="text-danger" [hidden]="!name.hasError('pattern')">Email is not Valid !!!</span>
                 <a style="color:white;cursor:pointer" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
             </div>
             <div class="menu-options" *ngIf="!showHome && !showLogin">

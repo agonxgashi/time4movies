@@ -38,7 +38,9 @@ export class HomeComponent implements OnInit {
             (err) => { }
             
         )
-        
+        if (this.name == "") {
+            this.getTrendinMovies();
+        }
     }
 
     getTrendinMovies() {
