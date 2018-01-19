@@ -1,26 +1,92 @@
 ﻿<br />
-<div class="col-md-12 movieDetails">
-    <span class="col-md-4"><img style="width:300px;height:500px" src="{{movie.fullPath}}" /></span>
-    <span class="col-md-6 col-md-pull-1">
-        <label>Title : {{movie.title}}({{movie.release_date}})</label>
-        <input class="col-md-push-5" type="submit" value="Watched" />
-        <br />
-        <br />
-        <label>Gendre :</label>  <label *ngFor="let m of movie.genres">{{ m.name }},</label> 
-        <br />
-        <br />
-        <label>Length : {{movie.runtime}} min </label>
-        <br />
-        <br />
-        <label>IMDB : {{movie.vote_average}}</label>
-        <br/><br/><br /><br />
-        <label>Overview : </label>
-        <label style="font-style: italic;"   > <br />{{movie.overview}} </label>
-    </span> 
+
+
+
+
+
+
+<div *ngIf="movie" class="col-md-12 movieDetails">
+    <div class="col-md-4">
+        <br/>
+        <img id="movPoster" src="{{movie.fullPath}}" alt="No Poster Avalabile"/>
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-8">
+            <br/>
+            <span class="btn btn-block col-md-2 imdbVote">
+                {{movie.vote_average | number:'.1-1' }}/10 • {{movie.vote_count}}votes
+            </span>
+
+        </div>
+        <div class="col-md-4">
+            <br/>
+            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Mark as watched"/>
+        </div>
+        <div class="col-md-12">
+            <p class="movTittle">{{movie.title}}</p>
+            <span>{{movie.runtime}}min • {{movie.release_date | date:'dd MMM yyyy'  }} • </span>
+            <br/>
+            <span *ngFor="let m of movie.genres">{{ m.name }},</span>
+            <br>
+            <span> Budget: ${{movie.budget | number }} | Revenue: ${{movie.revenue | number}} </span>
+            <br/>
+            <br/>
+            <span style="font-style: italic;"> <br/>{{movie.overview}} </span>
+        </div>
+        
+    </div> 
 </div>
         
+<div *ngIf="movie" class="col-md-12 movieComments">
+    
+    <div class="col-md-12 postComment">
+        <h2> Comments: </h2>
+        <textarea placeholder="Say something about this movie or read what others are saying below!" 
+                  rows="3" 
+                  class="form-control custumTextarea"></textarea>
+        <br/>
+        <input class="pull-right col-md-4 col-xs-12 mainBtn greenBtn" type="submit" value="Post" />
+        <br/>
+    </div>
+    
+   
+    
+    <section class="col-md-12 commentSection">
+        <br/>
+        <div class="commentDivider"></div>
+        <!-- Article should appear with ngFor foreach comment -->
+        <article class="commentItem" >
+            <label> @agonxgashi </label> <span>says:</span>
+            <br/>
+            <span>
+                Can we use the definitions to decide how to nest those elements? No, we cannot!
+
+                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
+            </span>
+        </article>
+        
+        
+        <article class="commentItem">
+            <label> @driartG </label> <span>says:</span>
+            <br />
+            <span>
+                Can we use the definitions to decide how to nest those elements? No, we cannot!
+
+                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
+            </span>
+        </article>
+
+        <article class="commentItem">
+            <label> @filanfisteku </label> <span>says:</span>
+            <br />
+            <span>
+                Can we use the definitions to decide how to nest those elements? No, we cannot!
+
+                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
+            </span>
+        </article>
+
+    </section>
 
 
-                   
-
-
+</div>

@@ -1,5 +1,5 @@
 ﻿import { Http, RequestOptions, Headers } from '@angular/http';
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, DatePipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'; //A po don me hi te models? modelsi i MovieModelit mvyn
 import { Component, OnInit } from '@angular/core';
