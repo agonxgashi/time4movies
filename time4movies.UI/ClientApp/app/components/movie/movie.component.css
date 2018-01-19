@@ -1,36 +1,89 @@
-﻿.searchTerm {
-    width: 35%;
-    border: 3px solid #00B4CC;
-    height: 35px;
-    border-radius: 5px;
-    color: #9DBFAF;
-    margin: 0 auto;
-    max-width: 1024px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 6em;
-    position: relative;
+﻿.movieDetails {
+    background-color: #EFF4E4;
+    margin: 0 !important;
+    padding: 20px !important;
+    color: #25373D;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
 }
 
-.searchTerm:focus {
-    color: #00B4CC;
-}
-.movieDetails img {
-    border-radius:15px;
+.movieComments {
+    margin: 0 !important;
+    padding: 20px !important;
+    color: #25373D;
+
 }
 
-.movieDetails {
-    margin-left:22%;
+#movPoster {
+    width: 100% !important;
+    border-radius: 4px;
 }
 
-.info {
-    font-size: 25px;
-    vertical-align: text-top;
+.movTittle {
+    font-size: 36px;  
 }
 
-label{
-    font-size:25px;
-    text-align:left;
+.imdbVote {
+    background: #25373D;
+    border: 1px solid #25373D;
+    color: white;
+    border-radius: 4px;
 }
 
+.mainBtn {
+    border-radius: 0.3em;
+    padding: 0.5em 0.15em;
+    color: white;
+    outline: 0 !important;
+    display: inline-block;
+    transition: all 200ms;
+    align-self: stretch;
+}
+
+.greenBtn {
+    background: #00FF89;   
+    border: 1px solid #33ee77; 
+}
+
+.greenBtn:hover {
+    background: transparent;
+    color: #33ee77;
+}
+
+.redBtn {
+    background: #E01931;
+    border: 1px solid #E01931;
+}
+
+    .redBtn:hover {
+        background: transparent;
+        color: #E01931;
+    }
+
+.commentDivider {
+    clear: both;
+    border: 1px dashed #25373D;
+    margin-bottom: 10px;
+}
+
+.custumTextarea {
+    border-radius: 0.3em;
+    padding: 0.5em 10px;
+    color: #25373D;
+    outline: 0 !important;
+    box-shadow: none !important;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.custumTextarea:focus {
+    border: 1px solid #25373D;
+}
+
+.commentItem {
+    padding: 15px 0;
+}
+
+    .commentItem > span {
+        wrap-option: break-word
+    }

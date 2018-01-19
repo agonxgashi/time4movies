@@ -17,4 +17,5 @@
     overview: string;
     release_date: string;
     fullPath: string;
+    largeFullPath: string;
 }
