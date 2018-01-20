@@ -23,5 +23,11 @@ namespace time4movies.UI.Controllers
         {
             return _cs.GetByMovieId(movieId);
         }
+
+        [HttpGet("[action]")]
+        public List<Comment> ByUser(int userId)
+        {
+            return _cs.GetByuserId(userId);
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace time4movies.Services.Logic.Interfaces
     {
         bool PostComment(Comment comment);
         List<Comment> GetByMovieId(int movieId);
+        List<Comment> GetByuserId(int userId);
     }
 }

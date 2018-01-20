@@ -6,6 +6,7 @@ import { LogInSrv } from "../../services/logInService";
 import { Router, ActivatedRoute} from "@angular/router";
 import { MovieModel } from './../../models/Movie/MovieModel';
 import { Watched } from './../../models/Logic/Watched';
+import { Comment } from './../../models/Logic/Comment'
 
 @Component({
     selector: 'movie',
@@ -17,16 +18,22 @@ export class MovieComponent implements OnInit {
     private movId: number;
     quote: Quote;
     movie: MovieModel;
+    comment: Comment;
+    movieComments: Comment[] = [];
+
     user: AppUser | undefined;
     
     constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) {
+        this.comment = new Comment();
         this.user = this.ls.retrieveUser();
+        this.comment.userId = this.user ? this.user.id : -1;
     }
 
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
             this.movId = params['id'];
+            this.comment.movieId = this.movId;
             var q: string = this.user
                 ? "/api/Search/ById?id=" + this.movId + "&userId=" + this.user.id
                 : "/api/Search/ById?id=" + this.movId;
@@ -58,5 +65,27 @@ export class MovieComponent implements OnInit {
     goToTrending() {
         this.router.navigate(['/home']);
     }
+
+    addComment() {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post("/api/Comment/Post", this.comment, options)
+            .subscribe(
+            (res) => {
+                if (res.text() === "true") {
+                    console.log(res);
+                    let c = new Comment();
+                    c.content = this.comment.content;
+                    this.movieComments.push(c);
+                } else {
+                    alert("Error");
+                }
+                    
+                },
+                (err) => {}
+            );
+
+    }
+
 
 }
