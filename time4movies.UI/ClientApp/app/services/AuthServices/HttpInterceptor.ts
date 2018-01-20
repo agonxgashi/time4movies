@@ -51,7 +51,6 @@ export class InterceptedHttp extends Http {
     }
 
     private getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
-        console.error('AutHeader');
         if (options == null) {
             options = new RequestOptions();
         }
