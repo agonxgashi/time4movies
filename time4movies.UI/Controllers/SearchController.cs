@@ -18,13 +18,14 @@ namespace time4movies.UI.Controllers
         [HttpGet("[action]")]
         public MoviesListModel ByName(string name)
         {
-            return _api.GetMoviehByName(name, 1);
+            return _api.GetMovieByName(name, 1);
         }
 
         [HttpGet("[action]")]
-        public MovieModel ById(string id)
+        
+        public MovieModel ById(string id, int userId = -1)
         {
-            return _api.GetMovieById(id);
+            return _api.GetMovieById(id, userId);
         }
 
         [HttpGet("[action]")]

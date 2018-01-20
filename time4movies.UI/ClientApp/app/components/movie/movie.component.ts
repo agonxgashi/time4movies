@@ -17,27 +17,26 @@ export class MovieComponent implements OnInit {
     private movId: number;
     quote: Quote;
     movie: MovieModel;
-    user: AppUser;
-    constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) { }
+    user: AppUser | undefined;
+
+    constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) {
+        this.user = this.ls.retrieveUser();
+    }
+
+
     ngOnInit(): void {
-        this.getRandomQuote();
         this.route.params.subscribe(params => {
             this.movId = params['id'];
+            var q: string = this.user
+                ? "/api/Search/ById?id=" + this.movId + "&userId=" + this.user.id
+                : "/api/Search/ById?id=" + this.movId;
 
-            this.http.get("/api/Search/ById?id=" + this.movId)
-                .subscribe(
-                    (res) => { this.movie = res.json(); },
-                    (err) => {}
-                );
+                this.http.get(q)
+                    .subscribe(
+                        (res) => { this.movie = res.json(); console.log(this.movie); },
+                        (err) => { }
+                    );                      
         });
-    }
-    getRandomQuote() {
-        this.http.get("/api/Quote/RandomQuote")
-            .subscribe(
-                (res) => { this.quote = res.json() },
-                (err) => {}
-            );
-
     }
 
     watched(w: Watched) {

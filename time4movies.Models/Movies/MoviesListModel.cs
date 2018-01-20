@@ -1,4 +1,5 @@
-﻿using time4movies.Models.API;
+﻿using System;
+using time4movies.Models.API;
 
 namespace time4movies.Models.Movies
 {
@@ -26,6 +27,9 @@ namespace time4movies.Models.Movies
         public bool adult { get; set; }
         public string overview { get; set; }
         public string release_date { get; set; }
+        public int UserId { get; set; }
+        public bool IsWatchedByUser { get; set; }
+        public DateTime DateWatched { get; set; }
 
         public string FullPath
         {

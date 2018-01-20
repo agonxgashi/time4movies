@@ -2,15 +2,24 @@
 using System;
 using System.Net.Http;
 using time4movies.Models.API;
+using time4movies.Models.Logic;
 using time4movies.Models.Movies;
 using time4movies.Repository.Error;
 using time4movies.Services.Logic.Interfaces;
+using time4movies.Services.Movies.Interfaces;
 
 namespace time4movies.Services.Logic
 {
     public class ApiMovieService : IApiMoviesService
     {
-        public MovieModel GetMovieById(string movieId)
+        private IMoviesService _movSrv;
+
+        public ApiMovieService(IMoviesService movSrv)
+        {
+            _movSrv = movSrv;
+        }
+
+        public MovieModel GetMovieById(string movieId, int userId)
         {
             MovieModel momvie = new MovieModel();
 
@@ -19,6 +28,14 @@ namespace time4movies.Services.Logic
                 HttpClient httpClient = new HttpClient();
                 string body = httpClient.GetStringAsync(APIQueries.SearchByMovieId_Query(movieId)).Result;
                 momvie = JsonConvert.DeserializeObject<MovieModel>(body);
+
+                Watched w = _movSrv.GetMovie(momvie.imdb_id, userId);
+                if (w != null)
+                {
+                    momvie.IsWatchedByUser = true;
+                    momvie.DateWatched = w.DateCreated;
+                }
+
             }
             catch (Exception ex)
             {
@@ -28,7 +45,7 @@ namespace time4movies.Services.Logic
             return momvie;
         }
 
-        public MoviesListModel GetMoviehByName(string name, int currentUserId)
+        public MoviesListModel GetMovieByName(string name, int currentUserId)
         {
             MoviesListModel list = new MoviesListModel();
 

@@ -47,6 +47,8 @@ namespace time4movies.UI
             services.AddTransient<IApiMoviesService, ApiMovieService>();
             services.AddTransient<ICommentRepo     , CommentRepo>();
             services.AddTransient<ICommentService  , CommentService>();
+            services.AddTransient<IMoviesRepo      , MoviesRepo>();
+            services.AddTransient<IMoviesService   , MoviesService>();
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 

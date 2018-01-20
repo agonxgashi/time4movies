@@ -7,8 +7,8 @@ namespace time4movies.Services.Logic.Interfaces
 {
     public interface IApiMoviesService
     {
-        MovieModel GetMovieById(string movieId);
+        MovieModel GetMovieById(string movieId, int userId);
         MoviesListModel GetTrendings();
-        MoviesListModel GetMoviehByName(string name, int currentUserId);
+        MoviesListModel GetMovieByName(string name, int currentUserId);
     }
 }
