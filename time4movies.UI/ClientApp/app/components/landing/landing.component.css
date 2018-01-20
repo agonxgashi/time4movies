@@ -22,6 +22,7 @@ input[type="submit"] {
     color: #AE171F;
     border: 2px solid #AE171F;
 }
+
 input[type="text"], input[type="password"], input[type="email"] {
     background-color: rgba(1,17,16, 0.55);
     border-radius: 10px;
@@ -36,6 +37,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
+
 a {
     color: inherit;
 }
@@ -63,7 +65,7 @@ a {
             background-size: cover;
             margin-bottom: .5em;
             box-shadow: 0 10px 17px rgba(0, 0, 0, 0.15);
-            border-radius:5px;
+            border-radius: 5px;
         }
 
         .container .item p {
@@ -72,7 +74,7 @@ a {
         }
 
 
-        .container img{
-           width:190px;
-           border-radius:5px;
-        }
+    .container img {
+        width: 190px;
+        border-radius: 5px;
+    }

@@ -14,7 +14,7 @@
 
                     </span>
                 </div>
-                
+
             </a>
         </div>
         <div class='clearfix'></div>
@@ -52,7 +52,7 @@
                 <a style="color:white;cursor:pointer" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
             </div>
             <div class="menu-options" *ngIf="!showHome && !showLogin">
-                
+
                 <ul class='nav navbar-nav'>
                     <li [routerLinkActive]="['link-active']">
                         <a [routerLink]="['/home']">
@@ -71,7 +71,7 @@
                     </li>
                 </ul>
                 <div style="clear: both"></div>
-                <br/>
+                <br />
                 <input class="col-xs-12 sidebarBtn logOutBtn" type="submit" (click)="logOut()" value="Log Out" />
 
                 <!--<input class="col-xs-12" type="submit" value="Watched"><br />
@@ -89,7 +89,6 @@
                     <label>[{{quote.author}}] </label>
                 </div>
             </footer>-->
-
             <!--<ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">

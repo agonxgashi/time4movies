@@ -4,16 +4,15 @@
         <input type="text" (keyup.enter)="searchMovies()" class="searchTerm col-md-offset-2" [(ngModel)]="name" placeholder="What are you looking for?">
     </div>
     <div class="container" *ngIf="movie">
-        <a class="item tilt-poster" *ngFor="let f of movie.results" > 
+        <a class="item tilt-poster" *ngFor="let f of movie.results">
             <div class="poster">
-                <div> 
-                    <img style="cursor:pointer" (click)="gotoMovie(f.id)" src="{{f.fullPath }}"/>
+                <div>
+                    <img style="cursor:pointer" (click)="gotoMovie(f.id)" src="{{f.fullPath }}" />
                 </div>
             </div>
             <p>{{f.title}} </p>
         </a>
-        
+
     </div>
 </div>
-    
-  
+
