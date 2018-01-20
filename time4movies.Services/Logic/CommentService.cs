@@ -23,5 +23,10 @@ namespace time4movies.Services.Logic
         {
             return _r.GetByMovieId(movieId);
         }
+
+        public List<Comment> GetByuserId(int userId)
+        {
+            return _r.GetByuserId(userId);
+        }
     }
 }

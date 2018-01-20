@@ -8,7 +8,9 @@ namespace time4movies.Models.Logic
         public int Id { get; set; }
         public int? ParentId { get; set; }
         public int MovieId { get; set; }
+        public string MovieTitle { get; set; }
         public int UserId { get; set; }
+        public string AuthorName { get; set; }
         public string Content { get; set; }
         public DateTime? CreateDate { get; set; }
         public bool? IsDeleted { get; set; }

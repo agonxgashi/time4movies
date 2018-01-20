@@ -13,7 +13,9 @@ namespace time4movies.Repository.Logic.Interfaces
             using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
             {
                 SqlCommand com = new SqlCommand("Movie.usp_Comment_Insert", con);
-                com.Parameters.AddWithValue("@parentId", comment.ParentId);
+                if (comment.ParentId != null)
+                    com.Parameters.AddWithValue("@parentId", comment.ParentId);
+
                 com.Parameters.AddWithValue("@movieId" , comment.MovieId);
                 com.Parameters.AddWithValue("@userId"  , comment.UserId);
                 com.Parameters.AddWithValue("@content" , comment.Content);
@@ -59,6 +61,32 @@ namespace time4movies.Repository.Logic.Interfaces
             return l;
         }
 
+        public List<Comment> GetByuserId(int userId)
+        {
+            List<Comment> l = new List<Comment>();
+            using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("Movie.usp_Comment_GetByuserId", con);
+                com.Parameters.AddWithValue("@userId", userId);
+                try
+                {
+                    con.Open();
+                    var reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var obj = toObject(reader);
+                        if (obj != null) l.Add(obj);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Error.AppErrorRepo.InsertError(e);
+                }
+            }
+            return l;
+        }
+
         private Comment toObject(IDataReader r)
         {
             try
@@ -68,6 +96,7 @@ namespace time4movies.Repository.Logic.Interfaces
                     Id         = int.Parse(r["Id"].ToString()),
                     UserId     = int.Parse(r["UserId"].ToString()),
                     MovieId    = int.Parse(r["MovieId"].ToString()),
+                    MovieTitle = !String.IsNullOrEmpty(r["Title"].ToString()) ? r["Title"].ToString() : "",
                     Content    = r["Content"].ToString(),
                     ParentId   = int.Parse(r["ParentId"].ToString()),
                     CreateDate = DateTime.Parse(r["CreateDate"].ToString())

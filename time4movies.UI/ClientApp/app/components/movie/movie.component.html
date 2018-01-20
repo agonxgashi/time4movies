@@ -36,10 +36,14 @@
     <div class="col-md-12 postComment">
         <h2> Comments: </h2>
         <textarea placeholder="Say something about this movie or read what others are saying below!"
+                  [(ngModel)]="comment.content"
                   rows="3"
                   class="form-control custumTextarea"></textarea>
         <br />
-        <input class="pull-right col-md-4 col-xs-12 mainBtn greenBtn" type="submit" value="Post" />
+        <input class="pull-right col-md-4 col-xs-12 mainBtn greenBtn" 
+               (click)="addComment()"
+               type="submit" 
+               value="Post" />
         <br />
     </div>
 
