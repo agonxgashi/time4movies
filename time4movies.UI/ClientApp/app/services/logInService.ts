@@ -23,7 +23,8 @@ export class LogInSrv {
             u.username     = token.unique_name;
             u.firstName    = token.given_name;
             u.lastName     = token.family_name;
-            u.email        = token.email;
+            u.email = token.email;
+            u.createDate = token.authtime;
             return u;
         } catch (e) {
             return undefined;
