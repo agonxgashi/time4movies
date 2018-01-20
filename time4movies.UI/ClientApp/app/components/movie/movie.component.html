@@ -1,66 +1,66 @@
 ﻿<br />
 <div *ngIf="movie" class="col-md-12 movieDetails">
     <div class="col-md-4">
-        <br/>
-        <img id="movPoster" src="{{movie.fullPath}}" alt="No Poster Avalabile"/>
+        <br />
+        <img id="movPoster" src="{{movie.fullPath}}" alt="No Poster Avalabile" />
     </div>
     <div class="col-md-8">
         <div class="col-md-8">
-            <br/>
+            <br />
             <span class="btn btn-block col-md-2 imdbVote">
                 {{movie.vote_average | number:'.1-1' }}/10 • {{movie.vote_count}}votes
             </span>
 
         </div>
         <div class="col-md-4">
-            <br/>
-            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Mark as watched"/>
+            <br />
+            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Mark as watched" />
         </div>
         <div class="col-md-12">
             <p class="movTittle">{{movie.title}}</p>
             <span>{{movie.runtime}}min • {{movie.release_date | date:'dd MMM yyyy'  }} • </span>
-            <br/>
+            <br />
             <span *ngFor="let m of movie.genres">{{ m.name }},</span>
             <br>
             <span> Budget: ${{movie.budget | number }} | Revenue: ${{movie.revenue | number}} </span>
-            <br/>
-            <br/>
-            <span style="font-style: italic;"> <br/>{{movie.overview}} </span>
+            <br />
+            <br />
+            <span style="font-style: italic;"> <br />{{movie.overview}} </span>
         </div>
-        
-    </div> 
+
+    </div>
 </div>
-        
+
 <div *ngIf="movie" class="col-md-12 movieComments">
-    
+
     <div class="col-md-12 postComment">
         <h2> Comments: </h2>
-        <textarea placeholder="Say something about this movie or read what others are saying below!" 
-                  rows="3" 
+        <textarea placeholder="Say something about this movie or read what others are saying below!"
+                  rows="3"
                   class="form-control custumTextarea"></textarea>
-        <br/>
+        <br />
         <input class="pull-right col-md-4 col-xs-12 mainBtn greenBtn" type="submit" value="Post" />
-        <br/>
+        <br />
     </div>
-    
-   
-    
+
+
+
     <section class="col-md-12 commentSection">
-        <br/>
+        <br />
         <div class="commentDivider"></div>
         <!-- Article should appear with ngFor foreach comment -->
-        <article class="commentItem" >
+        <article class="commentItem">
             <label> @agonxgashi </label> <span>says:</span>
-            <br/>
+            <br />
             <span>
                 Can we use the definitions to decide how to nest those elements? No, we cannot!
 
                 So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
             </span>
         </article>
-        
-        
-        <article class="commentItem">  
+
+
+        <article class="commentItem">
             <label> @driartG </label> <span>says:</span>
             <br />
             <span>
