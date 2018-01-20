@@ -1,4 +1,4 @@
-﻿import { Http } from '@angular/http';
+﻿import { Http, RequestOptions, Headers } from '@angular/http';
 import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'; //A po don me hi te models? modelsi i MovieModelit mvyn
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +18,7 @@ export class MovieComponent implements OnInit {
     quote: Quote;
     movie: MovieModel;
     user: AppUser | undefined;
-
+    
     constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) {
         this.user = this.ls.retrieveUser();
     }
@@ -39,11 +39,19 @@ export class MovieComponent implements OnInit {
         });
     }
 
-    watched(w: Watched) {
-        this.http.get("api/Logic/InsertWatched", JSON.stringify(w.movieId))
+    watched() {
+
+        let watched = new Watched();
+        watched.movieId = this.movId;
+        watched.userId = this.user ? this.user.id : -1;
+        console.log(watched);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        this.http.post("/api/Logic/InsertWatched", JSON.stringify(watched), options)
             .subscribe(
-                (res) => { this.movie = res.json() },
-                (err) => {}
+            (res) => {console.log("u insertua") },
+            (err) => {}
             );
     }
 

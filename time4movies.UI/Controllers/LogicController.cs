@@ -20,8 +20,8 @@ namespace time4movies.UI.Controllers
             _watched = watched;
         }
 
-        [HttpGet("[action]")]
-        public bool InsertWatched(Watched w)
+        [HttpPost("[action]")]
+        public bool InsertWatched([FromBody]Watched watched)
         {
             return _watched.InsertWatched(w); 
         }
