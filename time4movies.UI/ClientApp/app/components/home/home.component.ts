@@ -22,9 +22,10 @@ export class HomeComponent implements OnInit {
     queryUrl: string = '?name=';
     name: string;
     quote: Quote;
+    isSearching: boolean;
     
     constructor(private http: Http, private router: Router) {
-        
+        this.isSearching = true;
     }
 
 
@@ -32,9 +33,13 @@ export class HomeComponent implements OnInit {
         this.getTrendinMovies();
     }
     searchMovies() {
+        this.isSearching = true;
         this.http.get("/api/Search/ByName" + this.queryUrl + this.name )    
             .subscribe(
-            (res) => { this.movie = res.json(); console.log(res.json()) },
+            (res) => {
+                this.movie = res.json();
+                this.isSearching = false;
+            },
             (err) => { }
             
         )
@@ -44,9 +49,13 @@ export class HomeComponent implements OnInit {
     }
 
     getTrendinMovies() {
+        this.isSearching = true;
         this.http.get("/api/Search/Trending")
             .subscribe(
-            (res) => { this.movie = res.json(); console.log(res.json()); console.log(this.movie) },
+            (res) => {
+                this.movie = res.json();
+                this.isSearching = false;
+            },
             (err) => { }
 
             )

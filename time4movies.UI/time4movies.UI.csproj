@@ -34,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\img\loading\Dual Ring.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\time4movies.DAL\time4movies.Repository.csproj" />
     <ProjectReference Include="..\time4movies.Models\time4movies.Models.csproj" />
     <ProjectReference Include="..\time4movies.Services\time4movies.Services.csproj" />
