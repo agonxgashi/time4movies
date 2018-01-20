@@ -1,7 +1,32 @@
-<h1>Counter</h1>
+<br />
+<div  class="col-md-12 movieDetails">
+    <div class="col-md-4">
+        <br />
+        <img id="movPoster" src="" alt="No Poster Avalabile" />
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-8">
+            <br />
+            <span class="btn btn-block col-md-2 imdbVote">
+                {{user.username}}
+            </span>
 
-<p>This is a simple example of an Angular component.</p>
+        </div>
+        <div class="col-md-4">
+            <br />
+            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile" />
+        </div>
+        <div class="col-md-12">
+            <span>• Name : {{user.firstName}} • Surname : {{user.lastName}}</span>
+            <br />
+            <span >Watched Time : </span>
+            <br>
+            <span> Joined: <!--{{user.authtime}}--> </span>
+            <br />
+            <br />
+            <span style="font-style: italic;"> <br />Bio : </span>
 
-<p>Current count: <strong>{{ currentCount }}</strong></p>
+        </div>
 
-<button (click)="incrementCounter()">Increment</button>
+    </div>
+</div>
