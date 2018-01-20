@@ -12,55 +12,66 @@ import {
     NG_VALIDATORS, Validator,
     Validators, AbstractControl, ValidatorFn
 } from '@angular/forms';
+import { MovieListModel } from '../../models/Movie/MovieListModel';
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
     styles: [require('./home.css')]
 })
 export class HomeComponent implements OnInit {
-    movie: MovieModel[];
+    movie: MovieListModel;
     queryUrl: string = '?name=';
     name: string;
     quote: Quote;
     isSearching: boolean;
-    
+    showResult: boolean;
+
     constructor(private http: Http, private router: Router) {
         this.isSearching = true;
     }
 
 
     ngOnInit() {
-        this.getTrendinMovies();
+        this.searchMovies();
     }
     searchMovies() {
         this.isSearching = true;
-        this.http.get("/api/Search/ByName" + this.queryUrl + this.name )    
-            .subscribe(
-            (res) => {
-                this.movie = res.json();
-                this.isSearching = false;
-            },
-            (err) => { }
-            
-        )
-        if (this.name == "") {
-            this.getTrendinMovies();
-        }
-    }
 
-    getTrendinMovies() {
-        this.isSearching = true;
-        this.http.get("/api/Search/Trending")
+        var searchQuery = this.name ? "/api/Search/ByName" + this.queryUrl + this.name: "/api/Search/Trending";
+
+        this.http.get(searchQuery)
             .subscribe(
             (res) => {
                 this.movie = res.json();
+                console.log(this.movie)
                 this.isSearching = false;
+                if (this.movie.total_results > 0) {
+                    this.showResult = false;
+                }
+                else {
+                    this.showResult = true;
+                }
+              
             },
             (err) => { }
 
             )
 
     }
+
+    //getTrendinMovies() {
+    //    this.isSearching = true;
+    //    this.http.get("/api/Search/Trending")
+    //        .subscribe(
+    //        (res) => {
+    //            this.movie = res.json();
+    //            this.isSearching = false;
+    //        },
+    //        (err) => { }
+
+    //        )
+
+    //}
     gotoMovie(movId: number) {
         console.log(movId)
         this.router.navigate(['/movie/' + movId]);

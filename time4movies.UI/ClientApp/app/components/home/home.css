@@ -59,3 +59,17 @@
     height: auto;
     padding: 10px 15px;
 }
+
+.fa-spin {
+    margin-top: 13px;
+    color: #00FF89;
+}
+
+
+.errorText {
+    font-size: 25px;
+    margin-top: 10px;
+    text-align: center;
+    color: #B7BCC8;
+    font:italic;
+}

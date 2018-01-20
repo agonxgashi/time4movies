@@ -7,7 +7,7 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { LogInSrv } from './services/logInService'
 import { SideBarComponent } from './components/sidebar/sidebar.component';
@@ -21,7 +21,7 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
     declarations: [
                 AppComponent,
                 NavMenuComponent,
-                CounterComponent,
+                ProfileComponent,
                 FetchDataComponent,
                 HomeComponent,
                 LandingPageComponent,
@@ -36,7 +36,7 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                         RouterModule.forRoot([
                             { path: '', redirectTo: 'home', pathMatch: 'full' },
                             { path: 'home', component: HomeComponent },
-                            { path: 'counter', component: CounterComponent },
+                            { path: 'profile', component: ProfileComponent },
                             { path: 'fetch-data', component: FetchDataComponent },
                             //{ path: 'landing', component: LandingPageComponent },
                             { path: 'movie/:id', component: MovieComponent },
