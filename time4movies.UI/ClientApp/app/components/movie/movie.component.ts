@@ -1,4 +1,5 @@
 ﻿import { Http, RequestOptions, Headers } from '@angular/http';
+import { DatePipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
 import { Quote } from './../../models/Movie/Quote'; //A po don me hi te models? modelsi i MovieModelit mvyn
 import { Component, OnInit } from '@angular/core';
@@ -19,12 +20,14 @@ export class MovieComponent implements OnInit {
     quote: Quote;
     movie: MovieModel;
     comment: Comment;
-    movieComments: Comment[] = [];
+    movieComments: Comment[];
+    isWatched: boolean;
 
     user: AppUser | undefined;
     
     constructor(private route: ActivatedRoute, private router: Router, private http: Http, private ls: LogInSrv) {
         this.comment = new Comment();
+        this.movieComments = [];
         this.user = this.ls.retrieveUser();
         this.comment.userId = this.user ? this.user.id : -1;
     }
@@ -40,7 +43,7 @@ export class MovieComponent implements OnInit {
 
                 this.http.get(q)
                     .subscribe(
-                        (res) => { this.movie = res.json(); console.log(this.movie); },
+                    (res) => { this.movie = res.json(); console.log(this.movie); this.getComments(); },
                         (err) => { }
                     );                      
         });
@@ -51,19 +54,31 @@ export class MovieComponent implements OnInit {
         let watched = new Watched();
         watched.movieId = this.movId;
         watched.userId = this.user ? this.user.id : -1;
+        console.log(this.user);
         console.log(watched);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         this.http.post("/api/Logic/InsertWatched", JSON.stringify(watched), options)
             .subscribe(
-            (res) => {console.log("u insertua") },
+            (res) => {
+                this.movie.isWatchedByUser = true;
+            },
             (err) => {}
             );
     }
 
     goToTrending() {
         this.router.navigate(['/home']);
+    }
+
+    getComments() {
+        this.http.get("/api/Comment/ByMovie?movieId=" + this.movId)
+            .subscribe(
+            (res) => { this.movieComments = res.json(); console.log(this.movieComments)  },
+                (err) => { }
+            );
+
     }
 
     addComment() {
@@ -75,8 +90,14 @@ export class MovieComponent implements OnInit {
                 if (res.text() === "true") {
                     console.log(res);
                     let c = new Comment();
+
+                    if (this.user) {
+                        c.authorName = this.user.username;
+                        c.createDate = new Date();
+                    }
                     c.content = this.comment.content;
                     this.movieComments.push(c);
+                    this.comment = new Comment();
                 } else {
                     alert("Error");
                 }

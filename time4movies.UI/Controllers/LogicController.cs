@@ -23,7 +23,7 @@ namespace time4movies.UI.Controllers
         [HttpPost("[action]")]
         public bool InsertWatched([FromBody]Watched watched)
         {
-            return _watched.InsertWatched(w); 
+            return _watched.InsertWatched(watched); 
         }
     }
 }

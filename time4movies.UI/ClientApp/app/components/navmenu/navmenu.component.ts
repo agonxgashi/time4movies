@@ -40,6 +40,7 @@ export class NavMenuComponent {
                     this.ls.setCookieValue(res.text());
                     if (this.ls.retrieveUser()) {
                         this.showHome = !this.showHome;
+                        location.reload();
                     } else {
                         alert("Username or password is wrong!");
                     }
@@ -51,6 +52,7 @@ export class NavMenuComponent {
     logOut() {
         this.ls.clearJwtCookie();
         this.showHome = !this.showHome;
+        location.reload();
     }
 
     signUp() {

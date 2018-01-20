@@ -33,24 +33,29 @@ export class LogInSrv {
     }
 
     public setCookieValue(val: string) {
-        document.cookie =
-            this.name + "=" + val.replace('"', '').replace('"', '')
-            + ";path=/";
+        localStorage.setItem(this.name, val);
+
+        //document.cookie =
+        //    this.name + "=" + val.replace('"', '').replace('"', '')
+        //    + ";path=/";
     }
 
     public clearJwtCookie() {
-        document.cookie = this.name + '=; Max-Age=-0;';  
+        localStorage.removeItem(this.name);
+        //document.cookie = this.name + '=; Max-Age=-0;';  
     }
 
-    public getCookieValue(): string{
-        var nameEQ = this.name + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            return c.indexOf(nameEQ) == 0 ? c.substring(nameEQ.length,c.length) : "";
-        }
-    return "";
+    public getCookieValue(): any{
+        return localStorage.getItem(this.name);
+
+    //    var nameEQ = this.name + "=";
+    //    var ca = document.cookie.split(';');
+    //    for(var i=0;i < ca.length;i++) {
+    //        var c = ca[i];
+    //        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    //        return c.indexOf(nameEQ) == 0 ? c.substring(nameEQ.length,c.length) : "";
+    //    }
+    //return "";
     }
 
 }

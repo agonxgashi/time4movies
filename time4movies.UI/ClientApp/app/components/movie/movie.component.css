@@ -50,6 +50,16 @@
     color: #33ee77;
 }
 
+.orangeBtn {
+    background: #FF7416;
+    border: 1px solid #FF7416;
+}
+
+    .orangeBtn:hover {
+        background: transparent;
+        color: #FF7416;
+    }
+
 .redBtn {
     background: #E01931;
     border: 1px solid #E01931;

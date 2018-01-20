@@ -12,9 +12,17 @@
             </span>
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" *ngIf="user && !movie.isWatchedByUser">
             <br />
             <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" (click)="watched()" value="Mark as watched" />
+        </div>
+        <div class="col-md-4" *ngIf="user && movie.isWatchedByUser">
+            <br />
+            <input class="pull-right col-xs-12 mainBtn redBtn" type="submit" value="Remove from watched" />
+        </div>
+        <div class="col-md-4" *ngIf="!user">
+            <br />
+            <input class="pull-right col-xs-12 mainBtn orangeBtn" type="submit" value="Please Log In :D" />
         </div>
         <div class="col-md-12">
             <p class="movTittle">{{movie.title}}</p>
@@ -31,7 +39,7 @@
     </div>
 </div>
 
-<div *ngIf="movie" class="col-md-12 movieComments">
+<div *ngIf="movie && movie.isWatchedByUser " class="col-md-12 movieComments">
 
     <div class="col-md-12 postComment">
         <h2> Comments: </h2>
@@ -53,36 +61,18 @@
         <br />
         <div class="commentDivider"></div>
         <!-- Article should appear with ngFor foreach comment -->
-        <article class="commentItem">
-            <label> @agonxgashi </label> <span>says:</span>
+        <article class="commentItem" *ngFor="let c of movieComments">
+            <span class="badge" style="background-color:#25373D"> <b>{{c.authorName}}</b> says: </span>
             <br />
             <span>
-                Can we use the definitions to decide how to nest those elements? No, we cannot!
-
-                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
+                {{c.content}}
             </span>
+            <br />
+            <i> {{ c.createDate | date:'dd MMM yyyy' }} </i>
         </article>
 
 
-        <article class="commentItem">
-            <label> @driartG </label> <span>says:</span>
-            <br />
-            <span>
-                Can we use the definitions to decide how to nest those elements? No, we cannot!
-
-                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
-            </span>
-        </article>
-
-        <article class="commentItem">
-            <label> @filanfisteku </label> <span>says:</span>
-            <br />
-            <span>
-                Can we use the definitions to decide how to nest those elements? No, we cannot!
-
-                So, on the Internet, you will find HTML pages with section elements containing article elements, and article elements containing sections elements.
-            </span>
-        </article>
+      
 
     </section>
 

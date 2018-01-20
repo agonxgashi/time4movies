@@ -29,7 +29,7 @@ namespace time4movies.Services.Logic
                 string body = httpClient.GetStringAsync(APIQueries.SearchByMovieId_Query(movieId)).Result;
                 momvie = JsonConvert.DeserializeObject<MovieModel>(body);
 
-                Watched w = _movSrv.GetMovie(momvie.imdb_id, userId);
+                Watched w = _movSrv.GetMovie(momvie.id.ToString(), userId);
                 if (w != null)
                 {
                     momvie.IsWatchedByUser = true;

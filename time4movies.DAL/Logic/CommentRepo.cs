@@ -13,6 +13,7 @@ namespace time4movies.Repository.Logic.Interfaces
             using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
             {
                 SqlCommand com = new SqlCommand("Movie.usp_Comment_Insert", con);
+                com.CommandType = CommandType.StoredProcedure;
                 if (comment.ParentId != null)
                     com.Parameters.AddWithValue("@parentId", comment.ParentId);
 
@@ -41,6 +42,7 @@ namespace time4movies.Repository.Logic.Interfaces
             using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
             {
                 SqlCommand com = new SqlCommand("Movie.usp_Comment_GetByMovieId", con);
+                com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@movieId", movieId);
                 try
                 {
@@ -67,6 +69,7 @@ namespace time4movies.Repository.Logic.Interfaces
             using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
             {
                 SqlCommand com = new SqlCommand("Movie.usp_Comment_GetByuserId", con);
+                com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@userId", userId);
                 try
                 {
@@ -91,16 +94,18 @@ namespace time4movies.Repository.Logic.Interfaces
         {
             try
             {
-                return new Comment()
-                {
-                    Id         = int.Parse(r["Id"].ToString()),
-                    UserId     = int.Parse(r["UserId"].ToString()),
-                    MovieId    = int.Parse(r["MovieId"].ToString()),
-                    MovieTitle = !String.IsNullOrEmpty(r["Title"].ToString()) ? r["Title"].ToString() : "",
-                    Content    = r["Content"].ToString(),
-                    ParentId   = int.Parse(r["ParentId"].ToString()),
-                    CreateDate = DateTime.Parse(r["CreateDate"].ToString())
-                };
+                Comment c = new Comment();
+                    c.Id         = int.Parse(r["Id"].ToString());
+                    c.UserId     = int.Parse(r["UserId"].ToString());
+                    c.MovieId    = int.Parse(r["MovieId"].ToString());
+                    c.AuthorName = r["AuthorName"].ToString();
+                    c.MovieTitle = !String.IsNullOrEmpty(r["Title"].ToString()) ? r["Title"].ToString() : "";
+                    c.Content    = r["Content"].ToString();
+                    c.ParentId = !String.IsNullOrEmpty(r["ParentId"].ToString()) ? (int?)int.Parse(r["ParentId"].ToString()) : null; ;
+                    string s = r["CreateDate"].ToString();
+                    c.CreateDate = DateTime.Parse(s);
+
+                return c;
             }
             catch (Exception e)
             {
