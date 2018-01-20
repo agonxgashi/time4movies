@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { Router } from "@angular/router";
 import { MovieModel } from './../../models/Movie/MovieModel';
-
+import { Directive, forwardRef, Attribute, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 @Component({
     selector: 'nav-menu',
     templateUrl: './navmenu.component.html',
@@ -48,7 +49,6 @@ export class NavMenuComponent {
             )
         //this.router.navigate(['/home']);
         this.showHome = !this.showHome;
-
     }
 
     logOut() {
@@ -63,8 +63,7 @@ export class NavMenuComponent {
             .subscribe(
                 (res) => { },
                 (err) => { }
-            )
-
+        )
     }
 
     goHome() {
@@ -90,5 +89,7 @@ export class NavMenuComponent {
             )
 
     }
-
+    clearObject() {
+        this.userToEdit = new AppUser();
+    }
 }

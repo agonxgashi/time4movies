@@ -36,29 +36,6 @@ input[type="text"], input[type="password"], input[type="email"] {
     -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
 }
-
-
-/*.searchTerm {
-    width: 35%;
-    border: 3px solid #00B4CC;
-    height: 35px;
-    border-radius: 5px;
-    color: #9DBFAF;
-    margin: 0 auto;
-    max-width: 1024px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 6em;
-    position: relative;
-}
-
-    .searchTerm:focus {
-        color: #00B4CC;
-    }*/
-
-
-
 a {
     color: inherit;
 }

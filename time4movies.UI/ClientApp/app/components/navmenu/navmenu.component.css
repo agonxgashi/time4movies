@@ -134,5 +134,5 @@ li.link-active a:focus {
 footer {
     position: fixed;
     bottom: 0px;
-    max-width: 100%;
+    max-width: 50%;
 }
