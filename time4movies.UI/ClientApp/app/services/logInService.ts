@@ -20,6 +20,7 @@ export class LogInSrv {
         try {
             let token: any = JSON.parse(this.decodeJwt());
             let u: AppUser = new AppUser();
+            u.id           = token.acr;
             u.username     = token.unique_name;
             u.firstName    = token.given_name;
             u.lastName     = token.family_name;

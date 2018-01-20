@@ -18,4 +18,6 @@
     release_date: string;
     fullPath: string;
     largeFullPath: string;
+    userId: number;
+    isWatchedByUser: boolean;
 }
