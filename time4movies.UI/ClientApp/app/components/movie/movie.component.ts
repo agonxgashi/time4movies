@@ -1,7 +1,7 @@
 ﻿import { Http, RequestOptions, Headers } from '@angular/http';
 import { DatePipe } from '@angular/common';
 import { AppUser } from './../../models/Administration/appUser';
-import { Quote } from './../../models/Movie/Quote'; //A po don me hi te models? modelsi i MovieModelit mvyn
+import { Quote } from './../../models/Movie/Quote'; 
 import { Component, OnInit } from '@angular/core';
 import { LogInSrv } from "../../services/logInService";
 import { Router, ActivatedRoute} from "@angular/router";

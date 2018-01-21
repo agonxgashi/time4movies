@@ -18,7 +18,7 @@
     border-radius: 4px;
 }
 
-.userFnameLname {
+.movTittle {
     font-size: 36px;
 }
 
@@ -44,33 +44,7 @@
     border: 1px solid #33ee77;
 }
 
-.greenBtn:hover {
-    background: transparent;
-    color: #33ee77;
-}
-
-.redBtn {
-    background: #E01931;
-    border: 1px solid #E01931;
-}
-
-.redBtn:hover {
-    background: transparent;
-    color: #E01931;
-}
-
-
-
-.commentDivider {
-    clear: both;
-    border: 1px dashed #25373D;
-    margin-bottom: 10px;
-}
-
-.commentItem {
-    padding: 15px 0;
-}
-
-.commentItem > span {
-    wrap-option: break-word
-}
+    .greenBtn:hover {
+        background: transparent;
+        color: #33ee77;
+    }

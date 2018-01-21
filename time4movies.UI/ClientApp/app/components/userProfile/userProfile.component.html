@@ -1,0 +1,34 @@
+<br />
+
+<h1> USER PROFILE</h1>
+<div  class="col-md-12 movieDetails">
+    <div class="col-md-4">
+        <br />
+        <img id="movPoster" src="" alt="No Poster Avalabile" />
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-8">
+            <br />
+            <span class="btn btn-block col-md-2 imdbVote">
+                {{user.username}}
+            </span>
+
+        </div>
+        <div class="col-md-4">
+            <br />
+            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile" />
+        </div>
+        <div class="col-md-12">
+            <span> • Name : {{user.firstName}} • Surname : {{user.lastName}}</span>
+            <br />
+            <span >Watched Time : </span>
+            <br>
+            <span> Joined: {{user.createDate | date:'dd MMM yyyy'}} </span>
+            <br />
+            <br />
+            <span style="font-style: italic;"> <br />Bio : </span>
+
+        </div>
+
+    </div>
+</div>

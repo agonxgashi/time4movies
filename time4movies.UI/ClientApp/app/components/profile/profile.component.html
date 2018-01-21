@@ -1,34 +1,50 @@
 <br />
-
-<h1> {{username}}</h1>
-<div  class="col-md-12 movieDetails">
+    
+<div *ngIf="isFullyLoaded" class="col-md-12 movieDetails">
     <div class="col-md-4">
         <br />
-        <img id="movPoster" src="" alt="No Poster Avalabile" />
+        <img class="thumbnail"  id="movPoster" src="{{user.profileQR}}" alt="No Poster Avalabile" />
     </div>
     <div class="col-md-8">
-        <div class="col-md-8">
-            <br />
-            <span class="btn btn-block col-md-2 imdbVote">
-                {{user.username}}
-            </span>
-
-        </div>
         <div class="col-md-4">
             <br />
-            <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile" />
+            <span class="btn redBtn col-md-12 imdbVote">{{user.userType}}</span>
+        </div>
+        <div [ngClass]="(isMyProfile)?'col-md-4':'col-md-8'">
+            <br/>
+            <span class="btn btn-block col-md-2 imdbVote"> @{{user.username}}</span>
+        </div>
+        <div class="col-md-4">
+            <br/>
+            <input *ngIf="isMyProfile" class="btn pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile"/>
         </div>
         <div class="col-md-12">
-            <span> • Name : {{user.firstName}} • Surname : {{user.lastName}}</span>
-            <br />
-            <span >Watched Time : </span>
-            <br>
+            <p class="userFnameLname">{{user.firstName}} {{user.lastName}}</p>
             <span> Joined: {{user.createDate | date:'dd MMM yyyy'}} </span>
-            <br />
-            <br />
-            <span style="font-style: italic;"> <br />Bio : </span>
-
+            <br/>
+            <span style="font-style: italic;"> <br/>Bio : </span>
+            <br/>
+            <i> {{user.bio}} </i>
         </div>
-
     </div>
 </div>
+
+
+<section class="col-md-12 commentSection">
+    <br />
+    <div class="commentDivider"></div>
+    <!-- Article should appear with ngFor foreach comment -->
+    <article class="commentItem" *ngFor="let c of userComments">
+        <span class="badge" (click)="goToMovie(c.movieId)"  style="background-color:#25373D"> <b>at: {{c.movieTitle}}</b> </span>
+        <br />
+        <span>
+            {{c.content}}
+        </span>
+        <br />
+        <i> {{ c.createDate | date:'dd MMM yyyy' }} </i>
+    </article>
+
+
+      
+
+</section>
