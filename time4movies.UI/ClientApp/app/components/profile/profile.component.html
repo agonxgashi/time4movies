@@ -1,9 +1,9 @@
 <br />
-    
+
 <div *ngIf="isFullyLoaded" class="col-md-12 movieDetails">
     <div class="col-md-4">
         <br />
-        <img class="thumbnail"  id="movPoster" src="{{user.profileQR}}" alt="No Poster Avalabile" />
+        <img class="thumbnail" id="movPoster" src="{{user.profileQR}}" alt="No Poster Avalabile" />
     </div>
     <div class="col-md-8">
         <div class="col-md-4">
@@ -11,19 +11,19 @@
             <span class="btn redBtn col-md-12 imdbVote">{{user.userType}}</span>
         </div>
         <div [ngClass]="(isMyProfile)?'col-md-4':'col-md-8'">
-            <br/>
+            <br />
             <span class="btn btn-block col-md-2 imdbVote"> @{{user.username}}</span>
         </div>
         <div class="col-md-4">
-            <br/>
-            <input *ngIf="isMyProfile" class="btn pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile"/>
+            <br />
+            <input *ngIf="isMyProfile" class="btn pull-right col-xs-12 mainBtn greenBtn" data-toggle="modal" data-target="#myModal" type="submit" value="Edit Profile" />
         </div>
         <div class="col-md-12">
             <p class="userFnameLname">{{user.firstName}} {{user.lastName}}</p>
             <span> Joined: {{user.createDate | date:'dd MMM yyyy'}} </span>
-            <br/>
-            <span style="font-style: italic;"> <br/>Bio : </span>
-            <br/>
+            <br />
+            <span style="font-style: italic;"> <br />Bio : </span>
+            <br />
             <i> {{user.bio}} </i>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="commentDivider"></div>
     <!-- Article should appear with ngFor foreach comment -->
     <article class="commentItem" *ngFor="let c of userComments">
-        <span class="badge" (click)="goToMovie(c.movieId)"  style="background-color:#25373D"> <b>at: {{c.movieTitle}}</b> </span>
+        <span class="badge" (click)="goToMovie(c.movieId)" style="background-color:#25373D"> <b>at: {{c.movieTitle}}</b> </span>
         <br />
         <span>
             {{c.content}}
@@ -44,7 +44,122 @@
         <i> {{ c.createDate | date:'dd MMM yyyy' }} </i>
     </article>
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
 
-      
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 
+                </div>
+                <div class="modal-body">
+                    <div role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab">Info</a>
+
+                            </li>
+                            <li role="presentation">
+                                <a href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab">Password</a>
+
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="uploadTab">
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Name:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Surname:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="Surname" required><br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Email :</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="Email" required><br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Bio :</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <textarea class="col-xs-12 form-control sidebarInput" type="text" name="Bio"></textarea>
+                                        <br />
+                                        <div style="clear:both"></div>
+                                        <br />
+                                        <button type="button" class="btn btn-block greenBtn">Save changes</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br />
+                            <br />
+                            <div role="tabpanel" class="tab-pane" id="browseTab">
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Old Password:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">New Password:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <label for="usr">Repeat Again:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                        <br />
+                                        <button type="button" class="btn btn-block greenBtn">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <br />
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

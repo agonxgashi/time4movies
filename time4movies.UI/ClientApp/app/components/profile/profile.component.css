@@ -74,3 +74,28 @@
 .commentItem > span {
     wrap-option: break-word
 }
+
+.sidebarInput {
+    border-radius: 0.3em;
+    padding: 0.5em 10px;
+    color: #25373D;
+    outline: 0 !important;
+    box-shadow: none !important;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+    .sidebarInput:focus {
+        border: 1px solid #25373D;
+    }
+
+.greenBtn {
+    background: #00FF89;
+    color:white;
+    border: 1px solid #33ee77;
+}
+
+    .greenBtn:hover {
+        background: transparent;
+        color: #33ee77;
+    }
