@@ -36,7 +36,9 @@ import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
                         RouterModule.forRoot([
                             { path: '', redirectTo: 'home', pathMatch: 'full' },
                             { path: 'home', component: HomeComponent },
+                            { path: 'profile/:id', component: ProfileComponent },
                             { path: 'profile', component: ProfileComponent },
+                            
                             { path: 'fetch-data', component: FetchDataComponent },
                             //{ path: 'landing', component: LandingPageComponent },
                             { path: 'movie/:id', component: MovieComponent },
