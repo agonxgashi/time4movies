@@ -49,8 +49,12 @@ export class ProfileComponent implements OnInit {
                     (err) => { }
                 );
         });
+
     }
 
+    getUserDetails() {
+
+    }
 
     getComments() {
         this.http.get("/api/Comment/ByUser?userId=" + this.user.id)
@@ -60,6 +64,8 @@ export class ProfileComponent implements OnInit {
             );
 
     }
+
+
 
     goToMovie(movId:number) {
         this.router.navigate(['/movie/' + movId])
