@@ -34,6 +34,7 @@ export class MovieComponent implements OnInit {
 
 
     ngOnInit(): void {
+        console.log(this.movieComments)
         this.route.params.subscribe(params => {
             this.movId = params['id'];
             this.comment.movieId = this.movId;
@@ -125,6 +126,8 @@ export class MovieComponent implements OnInit {
             );
 
     }
-
+    goToProfile(username: string) {
+        this.router.navigate(['/profile/' + username])
+    }
 
 }
