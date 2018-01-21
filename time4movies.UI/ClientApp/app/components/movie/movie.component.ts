@@ -68,6 +68,24 @@ export class MovieComponent implements OnInit {
             );
     }
 
+    removeWatched() {
+        let watched = new Watched();
+        watched.movieId = this.movId;
+        watched.userId = this.user ? this.user.id : -1;
+        console.log(this.user);
+        console.log(watched);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        this.http.post("/api/Logic/RemoveWatched", JSON.stringify(watched), options)
+            .subscribe(
+            (res) => {
+                this.movie.isWatchedByUser = false;
+            },
+            (err) => { }
+            );
+    }
+
     goToTrending() {
         this.router.navigate(['/home']);
     }
