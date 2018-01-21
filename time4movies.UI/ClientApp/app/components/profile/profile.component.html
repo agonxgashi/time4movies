@@ -6,18 +6,25 @@
         <img class="thumbnail" id="movPoster" src="{{user.profileQR}}" alt="No Poster Avalabile" />
     </div>
     <div class="col-md-8">
+        
+
         <div class="col-md-4">
-            <br />
-            <span class="btn redBtn col-md-12 imdbVote">{{user.userType}}</span>
+            <br/>
+            <br/>
+            <span class="btn redBtn col-xs-12 imdbVote">{{user.userType}}</span>
         </div>
+
         <div [ngClass]="(isMyProfile)?'col-md-4':'col-md-8'">
             <br />
             <span class="btn btn-block col-md-2 imdbVote"> @{{user.username}}</span>
         </div>
+
         <div class="col-md-4">
             <br />
             <input *ngIf="isMyProfile" class="btn pull-right col-xs-12 mainBtn greenBtn" data-toggle="modal" data-target="#myModal" type="submit" value="Edit Profile" />
         </div>
+
+
         <div class="col-md-12">
             <p class="userFnameLname">{{user.firstName}} {{user.lastName}}</p>
             <span> Joined: {{user.createDate | date:'dd MMM yyyy'}} </span>

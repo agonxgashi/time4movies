@@ -14,6 +14,7 @@ import { MovieModel } from './../../models/Movie/MovieModel';
 })
 export class NavMenuComponent {
     userToEdit: AppUser;
+    isFullyLoaded:boolean = false;
 
     showLogIn: boolean = true;
     showHome: boolean = true;
@@ -25,10 +26,8 @@ export class NavMenuComponent {
 
     constructor(private router: Router, private http: Http, private ls: LogInSrv) {
         this.userToEdit = new AppUser();
-        console.log(this.ls.retrieveUser());
         this.showHome = this.ls.retrieveUser() ? true : false;
-        console.error("HOME:" + this.showHome);
-        console.error("LogIn:" + this.showLogIn);
+        this.isFullyLoaded = true;
     }
 
     login() {
