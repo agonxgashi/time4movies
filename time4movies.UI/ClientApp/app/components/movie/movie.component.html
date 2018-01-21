@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4" *ngIf="user && movie.isWatchedByUser">
             <br />
-            <input class="pull-right col-xs-12 mainBtn redBtn" type="submit" value="Remove from watched" />
+            <input class="pull-right col-xs-12 mainBtn redBtn" type="submit" (click)="removeWatched()" value="Remove from watched" />
         </div>
         <div class="col-md-4" *ngIf="!user">
             <br />

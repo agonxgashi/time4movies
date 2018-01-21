@@ -13,5 +13,7 @@ export class AppUser{
     userTypeId: number;
     userType  : string;
     createDate: Date;
-    isActive  : boolean;
+    isActive: boolean;
+    bio: string;
+    profileQr: string;
 }
