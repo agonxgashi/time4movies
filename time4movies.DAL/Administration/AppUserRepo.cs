@@ -81,5 +81,50 @@ namespace time4movies.Repository.Administration
             }
             return null;
         }
+
+        public AppUser GetByUsername(string username)
+        {
+            using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("Administration_usp_Profile_GetByUsername", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@username", username);
+                
+
+                try
+                {
+                    con.Open();
+                    var r = com.ExecuteReader();
+                    if (r.Read())
+                    {
+                        return new AppUser()
+                        {
+                            FirstName  = r["FirstName"].ToString(),
+                            LastName   = r["LastName"].ToString(),
+                            Email      = r["Email"].ToString(),
+                            Username   = r["Username"].ToString(),
+                            UserType   = r["UserType"].ToString(),
+                            Bio        = r["Bio"].ToString(),
+                            ProfileQR  = r["ProfileQR"].ToString(),
+                            UserTypeId = int.Parse(r["UserTypeId"].ToString()),
+                            Id         = int.Parse(r["Id"].ToString()),
+                            CreateDate = DateTime.Parse(r["CreateDate"].ToString()),
+                            IsAktiv    = true
+
+                        };
+                    }
+                }
+                catch (Exception e)
+                {
+                    AppError er = new AppError()
+                    {
+                        UserId           = -1,
+                        ExceptionMessage = e.Message
+                    };
+                    Error.AppErrorRepo.InsertError(er);
+                }
+            }
+            return null;
+        }
     }
 }

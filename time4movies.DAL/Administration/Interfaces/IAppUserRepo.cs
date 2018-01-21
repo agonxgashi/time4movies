@@ -6,5 +6,6 @@ namespace time4movies.Repository.Administration.Interfaces
     {
         bool CreateUser(AppUser user);
         AppUser LogInUser(AppUser user);
+        AppUser GetByUsername(string username);
     }
 }

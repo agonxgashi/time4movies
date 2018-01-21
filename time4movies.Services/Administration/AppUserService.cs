@@ -21,5 +21,10 @@ namespace time4movies.Services.Administration
         {
             return _appUserRepo.LogInUser(user);
         }
+
+        public AppUser GetByUsername(string username)
+        {
+            return _appUserRepo.GetByUsername(username);
+        }
     }
 }
