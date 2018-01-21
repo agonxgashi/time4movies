@@ -77,7 +77,7 @@
                                         <label for="usr">Name:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.firstName" type="text" name="firstName" required><br />
                                     </div>
                                 </div>
                                 <br />
@@ -87,7 +87,7 @@
                                         <label for="usr">Surname:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="Surname" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.lastName" type="text" name="Surname" required><br />
                                     </div>
                                 </div>
                                 <br />
@@ -97,7 +97,7 @@
                                         <label for="usr">Email :</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="Email" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.email" type="text" name="Email" required><br />
                                     </div>
                                 </div>
                                 <br />
@@ -107,11 +107,11 @@
                                         <label for="usr">Bio :</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <textarea class="col-xs-12 form-control sidebarInput" type="text" name="Bio"></textarea>
+                                        <textarea class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.bio" type="text" name="Bio"></textarea>
                                         <br />
                                         <div style="clear:both"></div>
                                         <br />
-                                        <button type="button" class="btn btn-block greenBtn">Save changes</button>
+                                        <button type="button" (click)="updateUSerInfo()" class="btn btn-block greenBtn">Save changes</button>
                                     </div>
                                 </div>
 
@@ -125,7 +125,7 @@
                                         <label for="usr">Old Password:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.password" type="password" name="firstName" required><br />
                                     </div>
                                 </div>
                                 <br />
@@ -135,7 +135,7 @@
                                         <label for="usr">New Password:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="newPassword" type="password" name="firstName" required><br />
                                     </div>
                                 </div>
                                 <br />
@@ -145,9 +145,9 @@
                                         <label for="usr">Repeat Again:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="col-xs-12 form-control sidebarInput" type="text" name="firstName" required><br />
+                                        <input class="col-xs-12 form-control sidebarInput" [(ngModel)]="userToUpdate.newpassword"  type="password" name="firstName" required><br />
                                         <br />
-                                        <button type="button" class="btn btn-block greenBtn">Save changes</button>
+                                        <button type="button" [disabled]="userToUpdate.newpassword != newPassword" (click)="updateUserPassword()" class="btn btn-block greenBtn">Save changes</button>
                                     </div>
                                 </div>
                             </div>

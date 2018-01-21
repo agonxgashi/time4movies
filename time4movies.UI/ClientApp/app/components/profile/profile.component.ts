@@ -13,10 +13,13 @@ import { Comment } from './../../models/Logic/Comment'
 export class ProfileComponent implements OnInit {
     userFromJwt: AppUser | undefined;
     user: AppUser;
+    userToUpdate: AppUser;
     username: string;
+    repeatedPsw: string;
     isMyProfile: boolean;
     isFullyLoaded: boolean;
     userComments: Comment[] = [];
+
 
 
     constructor(private _ls: LogInSrv, private route: ActivatedRoute, private router: Router, private http: Http) {
@@ -42,7 +45,9 @@ export class ProfileComponent implements OnInit {
             this.http.get(q)
                 .subscribe(
                 (res) => {
-                this.user = res.json();
+                    this.user = res.json();
+                    this.userToUpdate = this.user;
+                    console.log(this.userToUpdate)
                         this.getComments();
                         this.isFullyLoaded = true;
                     },
@@ -52,10 +57,32 @@ export class ProfileComponent implements OnInit {
 
     }
 
-    getUserDetails() {
-
+    updateUSerInfo() {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post("/api/AppUser/UpdateUser", JSON.stringify(this.userToUpdate), options)
+            .subscribe(
+            (res) => { },
+            (err) => { }
+            );
     }
 
+    updateUserPassword() {
+        let user = new AppUser();
+ 
+        user.id = this.userToUpdate.id;
+        user.password = this.userToUpdate.password;
+        let newPassword: any = user.password;
+       
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post("/api/AppUser/UpdatePassword", JSON.stringify(this.userToUpdate), options)
+            .subscribe(
+            (res) => { alert(res.text()) },
+            (err) => { }
+            );
+    }
     getComments() {
         this.http.get("/api/Comment/ByUser?userId=" + this.user.id)
             .subscribe(

@@ -9,7 +9,8 @@ export class AppUser{
     lastName  : string;
     username  : string;
     email     : string;
-    password  : string;
+    password: string;
+    newpassword: string;
     userTypeId: number;
     userType  : string;
     createDate: Date;
