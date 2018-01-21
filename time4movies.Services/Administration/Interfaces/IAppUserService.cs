@@ -6,5 +6,6 @@ namespace time4movies.Services.Administration.Interfaces
     {
         bool CreateUser(AppUser user);
         AppUser LogInUser(AppUser user);
+        AppUser GetByUsername(string username);
     }
 }

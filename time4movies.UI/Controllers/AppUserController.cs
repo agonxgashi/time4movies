@@ -30,5 +30,11 @@ namespace time4movies.UI.Controllers
             return usr != null ? TokenGenerator.Build(usr) : ""; 
         }
 
+        [HttpGet("[action]")]
+        public AppUser ByUsername(string username)
+        {
+            return _appUserService.GetByUsername(username);
+        }
+
     }
 }
