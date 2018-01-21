@@ -26,5 +26,15 @@ namespace time4movies.Services.Administration
         {
             return _appUserRepo.GetByUsername(username);
         }
+
+        public bool UpdateUser(AppUser user)
+        {
+            return _appUserRepo.UpdateUser(user);
+        }
+
+        public string UpdatePassword(AppUser user, string newPassword)
+        {
+            return _appUserRepo.UpdatePassword(user, newPassword);
+        }
     }
 }

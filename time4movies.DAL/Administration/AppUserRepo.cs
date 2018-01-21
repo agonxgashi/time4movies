@@ -126,5 +126,72 @@ namespace time4movies.Repository.Administration
             }
             return null;
         }
+
+        public bool UpdateUser(AppUser user)
+        {
+            using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("Administration.usp_AppUser_Update", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@userId"   , user.Id);
+                com.Parameters.AddWithValue("@firstName", user.FirstName);
+                com.Parameters.AddWithValue("@lastName" , user.LastName);
+                com.Parameters.AddWithValue("@email"    , user.Email);
+                com.Parameters.AddWithValue("@bio"      , user.Bio);
+
+                try
+                {
+                    con.Open();
+                    com.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    AppError er = new AppError()
+                    {
+                        UserId = user.Id,
+                        ExceptionMessage = e.Message
+                    };
+                    Error.AppErrorRepo.InsertError(er);
+                    return false;
+                }
+
+            }
+        }
+
+        public string UpdatePassword(AppUser user, string newPassword)
+        {
+            using (SqlConnection con = new SqlConnection(DbHelper.ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("Administration.usp_AppUser_UpdatePassword", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@userId", user.Id);
+                com.Parameters.AddWithValue("@oldPassword", user.Password);
+                com.Parameters.AddWithValue("@newPassword", newPassword);
+
+                try
+                {
+                    con.Open();
+                    var r = com.ExecuteReader();
+                    if (r.Read())
+                    {
+                        return r["Message"].ToString();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    AppError er = new AppError()
+                    {
+                        UserId = user.Id,
+                        ExceptionMessage = e.Message
+                    };
+                    Error.AppErrorRepo.InsertError(er);
+                
+                }
+            }
+            return "Error while changing password!";
+        }
     }
 }

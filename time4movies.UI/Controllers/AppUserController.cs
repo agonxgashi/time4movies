@@ -36,5 +36,17 @@ namespace time4movies.UI.Controllers
             return _appUserService.GetByUsername(username);
         }
 
+        [HttpPost("[action]")]
+        public bool UpdateUser([FromBody]AppUser user)
+        {
+            return _appUserService.UpdateUser(user);
+        }
+
+        [HttpPost("[action]")]
+        public string UpdatePassword([FromBody]AppUser user, [FromBody]string newPassword)
+        {
+            return _appUserService.UpdatePassword(user, newPassword);
+        }
+
     }
 }
