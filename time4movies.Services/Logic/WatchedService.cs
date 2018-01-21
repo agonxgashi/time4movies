@@ -16,5 +16,10 @@ namespace time4movies.Services.Logic
         {
             return _r.InsertWatched(w);
         }
+
+        public bool RemoveWatched(Watched w)
+        {
+            return _r.RemoveWatched(w);
+        }
     }
 }

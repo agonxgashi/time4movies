@@ -8,5 +8,6 @@ namespace time4movies.Repository.Logic.Interfaces
     public interface IWatchedRepo
     {
         bool InsertWatched(Watched w);
+        bool RemoveWatched(Watched w);
     }
 }

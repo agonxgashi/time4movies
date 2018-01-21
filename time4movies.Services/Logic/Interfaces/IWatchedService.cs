@@ -8,5 +8,6 @@ namespace time4movies.Services.Logic.Interfaces
     public interface IWatchedService
     {
         bool InsertWatched(Watched w);
+        bool RemoveWatched(Watched w);
     }
 }
