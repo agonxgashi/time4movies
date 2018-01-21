@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\components\sidebar\sidebar.component.ts" />
     <None Remove="ClientApp\app\models\Logic\Watched.ts" />
     <None Remove="ClientApp\app\models\Movie\Genre.ts" />
     <None Remove="ClientApp\app\models\Movie\Production_Companies.ts" />
@@ -44,7 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\components\sidebar\sidebar.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\Logic\Watched.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\Movie\BaseMovieModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\Movie\MovieListModel.ts" />
