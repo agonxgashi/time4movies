@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
             .subscribe(
             (res) => {
                 this.movie = res.json();
-                console.log(this.movie)
                 this.isSearching = false;
                 if (this.movie.total_results > 0) {
                     this.showResult = false;
@@ -58,22 +57,7 @@ export class HomeComponent implements OnInit {
             )
 
     }
-
-    //getTrendinMovies() {
-    //    this.isSearching = true;
-    //    this.http.get("/api/Search/Trending")
-    //        .subscribe(
-    //        (res) => {
-    //            this.movie = res.json();
-    //            this.isSearching = false;
-    //        },
-    //        (err) => { }
-
-    //        )
-
-    //}
     gotoMovie(movId: number) {
-        console.log(movId)
         this.router.navigate(['/movie/' + movId]);
     }
 }

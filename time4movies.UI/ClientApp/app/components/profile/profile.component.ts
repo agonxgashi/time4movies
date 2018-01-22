@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
                 (res) => {
                     this.user = res.json();
                     this.userToUpdate = this.user;
-                    console.log(this.userToUpdate)
+                    
                         this.getComments();
                         this.isFullyLoaded = true;
                     },
@@ -79,19 +79,18 @@ export class ProfileComponent implements OnInit {
         let options = new RequestOptions({ headers: headers });
         this.http.post("/api/AppUser/UpdatePassword", JSON.stringify(this.userToUpdate), options)
             .subscribe(
-            (res) => { alert(res.text()) },
+            (res) => { alert(res.text()); this.userToUpdate = new AppUser(); newPassword = new AppUser(); },
             (err) => { }
             );
     }
     getComments() {
         this.http.get("/api/Comment/ByUser?userId=" + this.user.id)
             .subscribe(
-                (res) => { this.userComments = res.json(); console.log(this.userComments);},
+                (res) => { this.userComments = res.json()},
                 (err) => { }
             );
 
     }
-
 
 
     goToMovie(movId:number) {

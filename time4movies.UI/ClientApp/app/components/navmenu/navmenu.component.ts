@@ -15,11 +15,9 @@ import { MovieModel } from './../../models/Movie/MovieModel';
 export class NavMenuComponent {
     userToEdit: AppUser;
     isFullyLoaded:boolean = false;
-
     showLogIn: boolean = true;
     showHome: boolean = true;
     movie: MovieModel[];
-
     query: string = "?name=";
     name: string;
 

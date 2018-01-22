@@ -34,7 +34,7 @@ export class MovieComponent implements OnInit {
 
 
     ngOnInit(): void {
-        console.log(this.movieComments)
+      
         this.route.params.subscribe(params => {
             this.movId = params['id'];
             this.comment.movieId = this.movId;
@@ -44,7 +44,7 @@ export class MovieComponent implements OnInit {
 
                 this.http.get(q)
                     .subscribe(
-                    (res) => { this.movie = res.json(); console.log(this.movie); this.getComments(); },
+                    (res) => { this.movie = res.json(); this.getComments(); },
                         (err) => { }
                     );                      
         });
@@ -55,8 +55,6 @@ export class MovieComponent implements OnInit {
         let watched = new Watched();
         watched.movieId = this.movId;
         watched.userId = this.user ? this.user.id : -1;
-        console.log(this.user);
-        console.log(watched);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
@@ -73,8 +71,6 @@ export class MovieComponent implements OnInit {
         let watched = new Watched();
         watched.movieId = this.movId;
         watched.userId = this.user ? this.user.id : -1;
-        console.log(this.user);
-        console.log(watched);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
@@ -94,7 +90,7 @@ export class MovieComponent implements OnInit {
     getComments() {
         this.http.get("/api/Comment/ByMovie?movieId=" + this.movId)
             .subscribe(
-            (res) => { this.movieComments = res.json(); console.log(this.movieComments)  },
+            (res) => { this.movieComments = res.json();  },
                 (err) => { }
             );
 
@@ -107,7 +103,6 @@ export class MovieComponent implements OnInit {
             .subscribe(
             (res) => {
                 if (res.text() === "true") {
-                    console.log(res);
                     let c = new Comment();
 
                     if (this.user) {
@@ -124,7 +119,6 @@ export class MovieComponent implements OnInit {
                 },
                 (err) => {}
             );
-
     }
     goToProfile(username: string) {
         this.router.navigate(['/profile/' + username])
