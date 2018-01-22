@@ -57,7 +57,7 @@ export class NavMenuComponent {
         let options = new RequestOptions({ headers: headers });
         this.http.post("/api/AppUser/CreateUser", JSON.stringify(this.userToEdit), options)
             .subscribe(
-                (res) => {},
+            (res) => { },
                 (err) => {}
             );
     }

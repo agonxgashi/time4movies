@@ -49,11 +49,11 @@
                 <input class="col-xs-12 sidebarInput" type="text" name="username" [(ngModel)]="userToEdit.username" placeholder="@username" required><br>
                 <br>
                 <br/>
-                <input class="col-xs-12 sidebarInput" #name="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
+                <input class="col-xs-12 sidebarInput" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" name="email" [(ngModel)]="userToEdit.email" placeholder="@email" required><br>
                 <br>
                 <br/>
                 <input class="col-xs-12 sidebarBtn" type="submit" (click)="signUp()" value="Sign Up"/>
-                <span class="text-danger" [hidden]="!name.hasError('pattern')">Email is not Valid !!!</span>
+                <span class="text-danger" [hidden]="!email.hasError('pattern')">Email is not Valid !!!</span>
                 <a style="color: white; cursor: pointer" class="pull-right" (click)="blurContSwitch()">Already have an Account? Sign In</a> <br>
             </div>
 
