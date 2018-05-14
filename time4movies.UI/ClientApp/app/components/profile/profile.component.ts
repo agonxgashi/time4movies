@@ -12,14 +12,14 @@ import { Comment } from './../../models/Logic/Comment'
 })
 export class ProfileComponent implements OnInit {
     userFromJwt: AppUser | undefined;
-    user: AppUser;
-    userToUpdate: AppUser;
-    username: string;
-    repeatedPsw: string;
-    isMyProfile: boolean;
-    isFullyLoaded: boolean;
+    user: AppUser = new AppUser();
+    userToUpdate: AppUser = new AppUser();
+    username: string = '';
+    repeatedPsw: string = '';
+    isMyProfile: boolean = false;
+    isFullyLoaded: boolean = false;
     userComments: Comment[] = [];
-
+    newPassword :string = '';
 
 
     constructor(private _ls: LogInSrv, private route: ActivatedRoute, private router: Router, private http: Http) {

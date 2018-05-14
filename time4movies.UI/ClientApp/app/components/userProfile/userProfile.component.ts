@@ -11,7 +11,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class UserProfileComponent implements OnInit {
     user: AppUser | undefined;
-    username: number;
+
 
 
     constructor(private _ls: LogInSrv, private route: ActivatedRoute, private router: Router, private http: Http) {

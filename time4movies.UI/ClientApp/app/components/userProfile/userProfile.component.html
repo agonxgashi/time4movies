@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <br />
             <span class="btn btn-block col-md-2 imdbVote">
-                {{user.username}}
+                {{user?.username}}
             </span>
 
         </div>
@@ -19,11 +19,11 @@
             <input class="pull-right col-xs-12 mainBtn greenBtn" type="submit" value="Edit Profile" />
         </div>
         <div class="col-md-12">
-            <span> • Name : {{user.firstName}} • Surname : {{user.lastName}}</span>
+            <span> ï¿½ Name : {{user?.firstName}} ï¿½ Surname : {{user?.lastName}}</span>
             <br />
             <span >Watched Time : </span>
             <br>
-            <span> Joined: {{user.createDate | date:'dd MMM yyyy'}} </span>
+            <span> Joined: {{user?.createDate | date:'dd MMM yyyy'}} </span>
             <br />
             <br />
             <span style="font-style: italic;"> <br />Bio : </span>
